@@ -1,0 +1,30 @@
+<?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+use App\LoaiMonAn;
+
+class MonAn extends Model
+{
+    //
+    protected $table = 'monans';
+
+    public function hoadons()
+    {
+        return $this->belongsToMany('App\HoaDon','chitiethoadons','id_mon_an','id_hoa_don');
+    }
+    public function loaimonan()
+    {
+        return $this->belongsTo('App\LoaiMonAn','id_loai_mon_an','id');
+    }
+    function DSMonAn(){
+        return MonAn::all();
+    }
+    function FindMonAn($id){
+        return MonAn::find($id);
+    }
+    function FindLoaiMonAn($id){
+        return LoaiMonAn::find($id);
+    }
+}
