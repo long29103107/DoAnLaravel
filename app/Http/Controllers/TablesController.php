@@ -12,6 +12,8 @@ use App\HoaDonNhap;
 use App\LoaiMonAn;
 use App\MonAn;
 use App\NhaCungCap;
+use App\ChiTietHoaDon;
+use App\ChiTietHoaDonNhap;
 use Config;
 
 class TablesController extends Controller
@@ -45,13 +47,26 @@ class TablesController extends Controller
         $nhacungcap = new NhaCungCap;
         $dsnhacungcap = $nhacungcap -> DSNhaCungCap();
 
+        $hoadon = new HoaDon;
+        $dshoadon = $hoadon -> DSHoaDon();
+
+        $cthoadon = new ChiTietHoaDon;
+        $dscthoadon = $cthoadon -> DSChiTietHoaDon();
+
+        $cthoadonnhap = new ChiTietHoaDonNhap;
+        $dscthoadonnhap = $cthoadonnhap -> DSChiTietHoaDonNhap();
+
         $data = ['dsuser' => $dsuser,
                 'dsnguyenlieu' => $dsnguyenlieu,
                 'dsloaiban' => $dsloaiban,
                 'dsban' => $dsban ,
                 'dsloaimonan' => $dsloaimonan,
                 'dsmonan' => $dsmonan,
-                'dsnhacungcap' => $dsnhacungcap ];
+                'dsnhacungcap' => $dsnhacungcap ,
+                'dshoadon' => $dshoadon,
+                'dscthoadon' => $dscthoadon,
+                'dscthoadonnhap' => $dscthoadonnhap,
+          ];
         return view(Config::get('paths.path.admin').".tables",$data);
     }
 

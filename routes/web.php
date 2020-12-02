@@ -14,12 +14,23 @@ use App\LoaiBan;
 use App\Ban;
 use App\User;
 
-Route::get('/', 'IndexController@index')->name('Indexindex');
-Route::get('useradmin', 'UserAdminController@index')->name('UserAdminindex');
-Route::get('dashboard', 'DashboardController@index')->name('Dashboardindex');
-Route::get('tables', 'TablesController@index')->name('Tablesindex');
-Route::get('signin', 'SignInController@index')->name('SignInindex');
-Route::get('signup', 'SignUpController@index')->name('SignUpindex');
+Route::get('/', 'IndexController@index')->name('Index.index');
+Route::get('useradmin', 'UserAdminController@index')->name('UserAdmin.index');
+Route::get('dashboard', 'DashboardController@index')->name('Dashboard.index');
+// Route::get('tables', 'TablesController@index')->name('Tables.index');
+Route::get('tableuser', 'TableUserController@index')->name('TableUser.index');
+Route::get('tableban', 'TableBanController@index')->name('TableBan.index');
+Route::get('tablechitiethoadon', 'TableChiTietHoaDonController@index')->name('TableChiTietHoaDon.index');
+Route::get('tablechitiethoadonnhap', 'TableChiTietHoaDonNhapController@index')->name('TableChiTietHoaDonNhap.index');
+Route::get('tablehoadon', 'TableHoaDonController@index')->name('TableHoaDon.index');
+Route::get('tablehoaodonnhap', 'TableHoaDonNhapController@index')->name('TableHoaDonNhap.index');
+Route::get('tableloaiban', 'TableLoaiBanController@index')->name('TableLoaiBan.index');
+Route::get('tableloaimonan', 'TableLoaiMonAnController@index')->name('TableLoaiMonAn.index');
+Route::get('tablemonan', 'TableMonAnController@index')->name('TableMonAn.index');
+Route::get('tablenguyenlieu', 'TableNguyenLieuController@index')->name('TableNguyenLieu.index');
+Route::get('tablenhacungcap', 'TableNhaCungCapController@index')->name('TableNhaCungCap.index');
+Route::get('signin', 'SignInController@index')->name('SignIn.index');
+Route::get('signup', 'SignUpController@index')->name('SignUp.index');
 
 // Route::get('thu/{id}',function($id){
 //     $loaiban = LoaiBan :: find($id);

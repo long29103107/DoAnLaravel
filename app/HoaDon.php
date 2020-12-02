@@ -8,8 +8,19 @@ class HoaDon extends Model
 {
     //
     protected $table = 'hoadons';
-    public function monan()
+    // public function monans()
+    // {
+    //     return $this->belongsToMany('App\MonAn','chitiethoadons','id_hoa_don','id_mon_an')->withPivot('so_luong', 'don_gia');
+    // }
+    public function chitiethoadon()
     {
-        return $this->belongsToMany('App\MonAn','chitiethoadons','id_hoa_don','id_mon_an');
+        return $this->hasMany('App\ChiTietHoaDon','id_loai_mon_an','id');
+    }
+    function DSHoaDon(){
+        $hoadon = HoaDon::all();
+        return $hoadon;
+    }
+    function FindHoaDon($id){
+        return HoaDon::find($id);
     }
 }

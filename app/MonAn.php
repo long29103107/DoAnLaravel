@@ -10,6 +10,10 @@ class MonAn extends Model
     //
     protected $table = 'monans';
 
+    public function chitiethoadon()
+    {
+        return $this->hasMany('App\ChiTietHoaDon','id_mon_an','id');
+    }
     public function hoadons()
     {
         return $this->belongsToMany('App\HoaDon','chitiethoadons','id_mon_an','id_hoa_don');

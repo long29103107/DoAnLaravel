@@ -25,6 +25,7 @@ class UserAdminController extends Controller
     public function create()
     {
         //
+
     }
 
     /**

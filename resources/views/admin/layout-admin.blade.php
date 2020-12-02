@@ -43,9 +43,7 @@ Coded by www.creative-tim.com
     .table-button{
         width:300px;
     }
-    .card{
-        border: #8080806e solid 1px;
-    }
+
     .form{
         display: inline-block;
         float: right;
@@ -59,21 +57,21 @@ Coded by www.creative-tim.com
     .text-left{
         text-align:center;
     }
-    .text-address{
-        display:flex;
-        width: 500px;
-    }
+
     .table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
         padding: 20px 10px;
     }
     .avatar{
         border-radius: 50%;
     }
+    .main-panel{
+        background-color:white;
+    }
  </style>
 
 </head>
 
-<body  onload="check()">
+<body id="body" onload="check()" style="position:relative;">
   <div class="wrapper ">
   @yield("menu")
     <div class="main-panel">
