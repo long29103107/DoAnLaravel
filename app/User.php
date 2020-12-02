@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use DB;
 
 class User extends Authenticatable
 {
@@ -43,5 +44,15 @@ class User extends Authenticatable
     }
     function FindUser($id){
         return User::find($id);
+    }
+    function CreateUser($data){
+        DB::table('users')->insert([
+            'tai_khoan' => $data['tai_khoan'],
+            'password' => bcrypt($data['password']),
+            'ho_ten' => $data['ho_ten'],
+            'sdt' => $data['sdt'],
+            'dia_chi' => $data['dia_chi'],
+            'phan_quyen' => true
+        ]);
     }
 }

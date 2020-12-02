@@ -6,7 +6,7 @@
                     <h4 style="display:inline;" class="card-title">User</h4>
                 </div> -->
                 <div class="card-header">
-                    <button style="float:left;" class="btn btn-primary"><a href="#">Create</a></button>
+                    <button style="float:left;" class="btn btn-primary"><a href="{{route('TableUser.create')}}">Create</a></button>
                     <form class="form">
                         <div class="input-group no-border">
                             <input type="text" value="" class="form-control" placeholder="Search...">

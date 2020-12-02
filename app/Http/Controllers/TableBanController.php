@@ -31,6 +31,7 @@ class TableBanController extends Controller
     public function create()
     {
         //
+
     }
 
     /**

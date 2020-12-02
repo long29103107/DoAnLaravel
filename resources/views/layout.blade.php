@@ -11,23 +11,23 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
-        <link rel="stylesheet" href="assets-1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="{{asset('assets-1/css/bootstrap.min.css')}}">
         <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href="assets-1/css/font-awesome.min.css">
+        <link rel="stylesheet" href="{{asset('assets-1/css/font-awesome.min.css')}}">
         <!--        <link rel="stylesheet" href="assets-1/css/bootstrap-theme.min.css">-->
 
 
         <!--For Plugins external css-->
-        <link rel="stylesheet" href="assets-1/css/animate/animate.css" />
-        <link rel="stylesheet" href="assets-1/css/plugins.css" />
+        <link rel="stylesheet" href="{{asset('assets-1/css/animate/animate.css')}}" />
+        <link rel="stylesheet" href="{{asset('assets-1/css/plugins.css')}}" />
 
         <!--Theme Responsive css-->
-        <link rel="stylesheet" href="assets-1/css/responsive.css" />
+        <link rel="stylesheet" href="{{asset('assets-1/css/responsive.css')}}" />
 
          <!--Theme custom css -->
-         <link rel="stylesheet" href="assets-1/css/style.css">
+         <link rel="stylesheet" href="{{asset('assets-1/css/style.css')}}">
 
-        <script src="assets-1/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+        <script src="{{asset('assets-1/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js')}}"></script>
     </head>
     <body>
         <!--[if lt IE 8]>
@@ -39,12 +39,12 @@
         @yield("content")
         @yield("footer")
 
-        <script src="assets-1/js/vendor/jquery-1.11.2.min.js"></script>
-        <script src="assets-1/js/vendor/bootstrap.min.js"></script>
+        <script src="{{asset('assets-1/js/vendor/jquery-1.11.2.min.js')}}"></script>
+        <script src="{{asset('assets-1/js/vendor/bootstrap.min.js')}}"></script>
 
-        <script src="assets-1/js/jquery-easing/jquery.easing.1.3.js"></script>
-        <script src="assets-1/js/wow/wow.min.js"></script>
-        <script src="assets-1/js/plugins.js"></script>
-        <script src="assets-1/js/main.js"></script>
+        <script src="{{asset('assets-1/js/jquery-easing/jquery.easing.1.3.js')}}"></script>
+        <script src="{{asset('assets-1/js/wow/wow.min.js')}}"></script>
+        <script src="{{asset('assets-1/js/plugins.js')}}"></script>
+        <script src="{{asset('assets-1/js/main.js')}}"></script>
     </body>
 </html>

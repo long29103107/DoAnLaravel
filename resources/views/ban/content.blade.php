@@ -3,7 +3,7 @@
     <div class="col-md-12">
             <div class="card card-plain">
                 <div class="card-header">
-                    <button style="float:left;"  class="btn btn-primary">Create</button>
+                    <button style="float:left;"  class="btn btn-primary"><a href="{{route('TableBan.index')}}"></a></button></button>
                     <form class="form">
                         <div class="input-group no-border">
                             <input type="text" value="" class="form-control" placeholder="Search...">

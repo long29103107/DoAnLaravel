@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
 use Illuminate\Http\Request;
+use App\User;
+use DB;
 
 class TableUserController extends Controller
 {
@@ -29,6 +30,7 @@ class TableUserController extends Controller
     public function create()
     {
         //
+        return view("user.create");
     }
 
     /**
@@ -40,6 +42,17 @@ class TableUserController extends Controller
     public function store(Request $request)
     {
         //
+        $user = new User;
+        $userdata = ["tai_khoan"=>$request->taikhoan,
+                "password"=>$request->password,
+                "ho_ten"=>$request->hoten,
+                "sdt"=>$request->sodienthoai,
+                "dia_chi"=>$request->diachi,
+                "phan_quyen"=>$request->phanquyen];
+        $user->CreateUser($userdata);
+        $dsuser = $user -> DSUser();
+        $data = ['dsuser'=>$dsuser];
+        return view("user.index",$data);
     }
 
     /**
