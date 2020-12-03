@@ -36,11 +36,11 @@
                 <li> <a href="{{route('TableLoaiMonAn.index')}}"><i class="fa fa-angle-right"></i>Loại món ăn</a></li>
                 <li> <a href="{{route('TableMonAn.index')}}"><i class="fa fa-angle-right"></i>Món ăn</a></li>
                 <li> <a href="{{route('TableHoaDon.index')}}"><i class="fa fa-angle-right"></i>Hoá đơn</a></li>
-                <li> <a href="{{route('TableChiTietHoaDon.index')}}"><i class="fa fa-angle-right"></i>Chi tiết hoá đơn</a></li>
+                <!-- <li> <a href="{{route('TableChiTietHoaDon.index')}}"><i class="fa fa-angle-right"></i>Chi tiết hoá đơn</a></li> -->
                 <li> <a href="{{route('TableNguyenLieu.index')}}"><i class="fa fa-angle-right"></i>Nguyên liệu</a></li>
                 <li> <a href="{{route('TableNhaCungCap.index')}}"><i class="fa fa-angle-right"></i>Nhà cung cấp</a></li>
                 <li> <a href="{{route('TableHoaDonNhap.index')}}"><i class="fa fa-angle-right"></i>Hoá đơn nhập</a></li>
-                <li> <a href="{{route('TableChiTietHoaDonNhap.index')}}"><i class="fa fa-angle-right"></i>Chi tiết hoá đơn nhập</a></li>
+                <!-- <li> <a href="{{route('TableChiTietHoaDonNhap.index')}}"><i class="fa fa-angle-right"></i>Chi tiết hoá đơn nhập</a></li> -->
               </ul>
             </a>
           </li>

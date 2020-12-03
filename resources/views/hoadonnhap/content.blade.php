@@ -29,7 +29,8 @@
                         <tbody>
                         @foreach($dshoadonnhap as $dshdn)
                         <tr>
-                        <td class="table-button">
+                        <td class="">
+                                <button class="btn btn-warning">Chi tiết</button>
                                 <button class="btn btn-success">Update</button>
                                 <button class="btn btn-danger">Delete</button>
                             </td>
