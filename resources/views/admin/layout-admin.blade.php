@@ -141,6 +141,19 @@ Coded by www.creative-tim.com
                 break;
         }
     }
+    // $('.block').click(function(){
+    //     var inner = document.getElementsByClassName("block").innerHTML;
+    //     if(inner == "Active"){
+    //         document.getElementsByClassName("block").innerHTML="Deactive"
+    //         $(".block").addClass("btn-info");
+    //         $(".block").removeClass("btn-warning");
+    //     }
+    //     else{
+    //         document.getElementsByClassName("block").innerHTML="Active"
+    //         $(".block").removeClass("btn-info");
+    //         $(".block").addClass("btn-warning");
+    //     }
+    // });
   </script>
 </body>
 </html>

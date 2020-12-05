@@ -19,31 +19,28 @@
                 </div>
             </div>
 
-        <form action="{{route('TableUser.store')}}" method="post" enctype="multipart/form-data">
-            @csrf
+        <form action="{{route('TableUser.update',$id)}}" method="post" enctype="multipart/form-data">
+         @method('PUT')
+         @csrf
             <div class="form-group">
                 <label for="usr">Tài khoản</label>
-                <input type="text" class="form-control" id="" name="taikhoan">
-            </div>
-            <div class="form-group">
-                <label for="usr">Password</label>
-                <input type="password" class="form-control" id="" name="password">
+                <input type="text" class="form-control" id="" value="{{$tai_khoan}}" name="taikhoan">
             </div>
             <div class="form-group">
                 <label for="usr">Họ Tên</label>
-                <input type="text" class="form-control" id="" name="hoten">
+                <input type="text" class="form-control" value="{{$ho_ten}}" id="" name="hoten">
             </div>
             <div class="form-group">
                 <label for="usr">Số điện thoại</label>
-                <input type="text" class="form-control" id="" name="sodienthoai">
+                <input type="text" class="form-control" value="{{$sdt}}" id="" name="sodienthoai">
             </div>
             <div class="form-group">
                 <label for="usr">Địa chỉ</label>
-                <input type="text" class="form-control" id="" name="diachi">
+                <input type="text" class="form-control" id="" value="{{$dia_chi}}" name="diachi">
             </div>
             <div class="form-group">
                 <label for="usr">Phân Quyền</label>
-                <input type="text" class="form-control" id="usr" name="phanquyen">
+                <input type="text" class="form-control" value="{{$phan_quyen}}" id="usr" name="phanquyen">
             </div>
             <div class="form-group">
                 <input type="submit" class="btn btn-success" id="usr">

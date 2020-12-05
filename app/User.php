@@ -55,4 +55,29 @@ class User extends Authenticatable
             'phan_quyen' => true
         ]);
     }
+    function UpdateUser($data,$id){
+        $user = DB::table('users')
+              ->where('id', $id)
+              ->update([
+                'tai_khoan' => $data['tai_khoan'],
+                'ho_ten' => $data['ho_ten'],
+                'sdt' => $data['sdt'],
+                'dia_chi' => $data['dia_chi'],
+                'phan_quyen' => $data['phan_quyen'],
+              ]);
+    }
+    function UpdateActive($id){
+        $userup = FindUser($id);
+        $data = false;
+        if($userup->phan_quyen == false)
+            $data = true;
+        $user = DB::table('users')
+            ->where('id', $id)
+            ->update([
+              'phan_quyen' => $data,
+            ]);
+    }
+    function DeleteUser($id){
+        $user =DB::table('users')->where('id', $id)->delete();
+    }
 }

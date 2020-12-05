@@ -23,6 +23,11 @@ Route::get('dashboard', 'DashboardController@index')->name('Dashboard.index');
 Route::get('tableuser', 'TableUserController@index')->name('TableUser.index');
 Route::get('tableuser/create', 'TableUserController@create')->name('TableUser.create');
 Route::post('tableuser', 'TableUserController@store')->name('TableUser.store');
+Route::get('tableuser/{id}/edit', 'TableUserController@edit')->name('TableUser.edit');
+Route::put('tableuser/{id}', 'TableUserController@update')->name('TableUser.update');
+Route::get('tableuser/{id}', 'TableUserController@show')->name('TableUser.show');
+Route::delete('tableuser/{id}', 'TableUserController@destroy')->name('TableUser.destroy');
+
 
 //Table bàn
 Route::get('tableban', 'TableBanController@index')->name('TableBan.index');

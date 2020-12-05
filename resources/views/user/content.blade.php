@@ -45,9 +45,9 @@
                         <tr>
                         <td >
                             <div class="flex-user">
-                            <button class="btn btn-success">Update</button>
-                            <button class="btn btn-danger">Delete</button>
-                            <button class="btn btn-warning">Block</button></div>
+                            <button class="btn btn-success"><a href="{{route('TableUser.edit',$user->id)}}"> Update</a></button>
+                            <button class="btn btn-danger"><a href="{{route('TableUser.show',$user->id)}}">Delete</a></button>
+                            <button class="btn btn-warning block">Active</button></div>
                             </td>
                             <td class="text-left">
                                 {{$user['tai_khoan']}}

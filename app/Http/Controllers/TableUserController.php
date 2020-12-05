@@ -64,6 +64,9 @@ class TableUserController extends Controller
     public function show($id)
     {
         //
+        $user = new User;
+        $user = $user->FindUser($id);
+        return view("user.delete",$user);
     }
 
     /**
@@ -75,6 +78,9 @@ class TableUserController extends Controller
     public function edit($id)
     {
         //
+        $user = new User;
+        $data = $user ->FindUser($id);
+        return view("user.update",$data);
     }
 
     /**
@@ -87,8 +93,27 @@ class TableUserController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $user = new User;
+        $user->tai_khoan = $request->taikhoan;
+        $user->ho_ten =$request->hoten;
+        $user->sdt =$request->sodienthoai;
+        $user->dia_chi=$request->diachi;
+        $user->phan_quyen=$request->phanquyen;
+        $updateuser = new User;
+        $updateuser->UpdateUser($user,$id);
+        $dsuser = $user -> DSUser();
+        $data = ['dsuser'=>$dsuser];
+        return view("user.index",$data);
     }
-
+    // public function updateActive($id)
+    // {
+    //     //
+    //     $user = new User;
+    //     $updateuser->UpdateActive($id);
+    //     $dsuser = $user -> DSUser();
+    //     $data = ['dsuser'=>$dsuser];
+    //     return view("user.index",$data);
+    // }
     /**
      * Remove the specified resource from storage.
      *
@@ -98,5 +123,10 @@ class TableUserController extends Controller
     public function destroy($id)
     {
         //
+        $user = new User;
+        $data = $user ->DeleteUser($id);
+        $dsuser = $user -> DSUser();
+        $data = ['dsuser'=>$dsuser];
+        return view("user.index",$data);
     }
 }
