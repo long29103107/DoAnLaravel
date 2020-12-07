@@ -44,8 +44,6 @@
                 <input type="text" class="form-control" id="" name="diachi">
             </div>
             <div class="form-group">
-                <!-- <label for="usr">Phân Quyền</label>
-                <input type="text" class="form-control" id="usr" name="phanquyen"> -->
                 <label for="sel1">Phân Quyền</label>
                 <select class="form-control" id="sel1" name="phanquyen">
                     <option value="1">Admin</option>

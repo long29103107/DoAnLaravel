@@ -30,8 +30,8 @@
                             @foreach($dsloaimonan as $lma)
                         <tr>
                         <td class="table-button">
-                                <button class="btn btn-success">Update</button>
-                                <button class="btn btn-danger">Delete</button>
+                                <button class="btn btn-success"><a href="{{route('TableLoaiMonAn.edit',$lma->id)}}">Update</a></button>
+                                <button class="btn btn-danger"><a href="{{route('TableLoaiMonAn.show',$lma->id)}}">Delete</a></button>
                             </td>
                             <td class="text-left">
                             {{$lma['ten_loai']}}

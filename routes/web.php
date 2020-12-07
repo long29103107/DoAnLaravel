@@ -53,6 +53,10 @@ Route::get('tableloaiban', 'TableLoaiBanController@index')->name('TableLoaiBan.i
 Route::get('tableloaimonan', 'TableLoaiMonAnController@index')->name('TableLoaiMonAn.index');
 Route::get('tableloaimonan/create', 'TableLoaiMonAnController@create')->name('TableLoaiMonAn.create');
 Route::post('tableloaimonan', 'TableLoaiMonAnController@store')->name('TableLoaiMonAn.store');
+Route::get('tableloaimonan/{id}/edit', 'TableLoaiMonAnController@edit')->name('TableLoaiMonAn.edit');
+Route::put('tableloaimonan/{id}', 'TableLoaiMonAnController@update')->name('TableLoaiMonAn.update');
+Route::get('tableloaimonan/{id}', 'TableLoaiMonAnController@show')->name('TableLoaiMonAn.show');
+Route::delete('tableloaimonan/{id}', 'TableLoaiMonAnController@destroy')->name('TableLoaiMonAn.destroy');
 
 //Table món ăn
 Route::get('tablemonan', 'TableMonAnController@index')->name('TableMonAn.index');

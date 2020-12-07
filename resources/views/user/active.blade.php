@@ -15,7 +15,7 @@
         <div class="col-md-12">
             <div class="card card-plain">
                 <div class="card-header">
-                    <h4 style="display:inline;" class="card-title"><?php if($khoa == true) echo "Khoá User"; else echo "Mở Khoá User"; ?></h4>
+                    <h4 style="display:inline;" class="card-title"><?php if($khoa == true) echo "Mở Khoá User"; else echo "Khoá User"; ?></h4>
                 </div>
             </div>
         <form action="{{route('TableUser.active',$id)}}" method="post" enctype="multipart/form-data">

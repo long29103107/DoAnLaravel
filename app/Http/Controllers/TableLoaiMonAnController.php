@@ -44,9 +44,9 @@ class TableLoaiMonAnController extends Controller
     public function store(Request $request)
     {
         //
-        $userdata = DB::table('loaimonans')->insert([
-            'ten_loai' => $request->tenloaimonan,
-        ]);s
+        $loaimonan = new LoaiMonAn;
+        $loaimonan->ten_loai = $request->tenloaimonan;
+        $loaimonan->save();
         return redirect()->route('TableLoaiMonAn.index');
     }
 
@@ -59,6 +59,9 @@ class TableLoaiMonAnController extends Controller
     public function show($id)
     {
         //
+        $loaimonan = new LoaiMonAn;
+        $loaimonan = $loaimonan->FindLoaiMonAn($id);
+        return view("loaimonan.delete",$loaimonan);
     }
 
     /**
@@ -70,6 +73,9 @@ class TableLoaiMonAnController extends Controller
     public function edit($id)
     {
         //
+        $loaimonan = new LoaiMonAn;
+        $data = $loaimonan ->FindLoaiMonAn($id);
+        return view("loaimonan.update",$data);
     }
 
     /**
@@ -82,6 +88,11 @@ class TableLoaiMonAnController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $loaimonan = new LoaiMonAn;
+        $data = $loaimonan ->FindLoaiMonAn($id);
+        $data->ten_loai= $request->tenloai;
+        $data->save();
+        return redirect()->route('TableLoaiMonAn.index');
     }
 
     /**
@@ -93,5 +104,9 @@ class TableLoaiMonAnController extends Controller
     public function destroy($id)
     {
         //
+        $loaimonan = new LoaiMonAn;
+        $data = $loaimonan ->FindLoaiMonAn($id);
+        $data->delete();
+        return redirect()->route('TableLoaiMonAn.index');
     }
 }
