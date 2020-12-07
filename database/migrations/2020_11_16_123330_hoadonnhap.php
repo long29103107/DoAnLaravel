@@ -17,6 +17,7 @@ class Hoadonnhap extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('id_nha_cung_cap');
             $table->timestamps();
+            $table->softDeletes();
             $table->engine='InnoDB';
         });
     }

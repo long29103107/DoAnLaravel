@@ -41,18 +41,17 @@ class TableUserController extends Controller
      */
     public function store(Request $request)
     {
-        //
         $user = new User;
-        $userdata = ["tai_khoan"=>$request->taikhoan,
-                "password"=>$request->password,
-                "ho_ten"=>$request->hoten,
-                "sdt"=>$request->sodienthoai,
-                "dia_chi"=>$request->diachi,
-                "phan_quyen"=>$request->phanquyen];
-        $user->CreateUser($userdata);
-        $dsuser = $user -> DSUser();
-        $data = ['dsuser'=>$dsuser];
-        return view("user.index",$data);
+        $user1 = new User;
+        $user->tai_khoan = $request->taikhoan;
+        $user->password = bcrypt($request->password);
+        $user->ho_ten = $request->hoten;
+        $user->sdt = $request->sodienthoai;
+        $user->dia_chi = $request->diachi;
+        $user->phan_quyen = $request->phanquyen;
+        $user->khoa= false;
+        $user->save();
+        return redirect()->route('TableUser.index');
     }
 
     /**
@@ -94,27 +93,38 @@ class TableUserController extends Controller
     {
         //
         $user = new User;
-        $user->tai_khoan = $request->taikhoan;
-        $user->ho_ten =$request->hoten;
-        $user->sdt =$request->sodienthoai;
-        $user->dia_chi=$request->diachi;
-        $user->phan_quyen=$request->phanquyen;
-        $updateuser = new User;
-        $updateuser->UpdateUser($user,$id);
-        $dsuser = $user -> DSUser();
-        $data = ['dsuser'=>$dsuser];
-        return view("user.index",$data);
+        $data = $user ->FindUser($id);
+        $data->tai_khoan = $request->taikhoan;
+        $data->password = bcrypt($request->password);
+        $data->ho_ten =$request->hoten;
+        $data->sdt =$request->sodienthoai;
+        $data->dia_chi=$request->diachi;
+        $data->phan_quyen=$request->phanquyen;
+        $data->khoa= false;
+        $data->save();
+        return redirect()->route('TableUser.index');
     }
-    // public function updateActive($id)
-    // {
-    //     //
-    //     $user = new User;
-    //     $updateuser->UpdateActive($id);
-    //     $dsuser = $user -> DSUser();
-    //     $data = ['dsuser'=>$dsuser];
-    //     return view("user.index",$data);
-    // }
+
+    public function showactive($id)
+    {
+        //
+        $user = new User;
+        $user = $user->FindUser($id);
+        return view("user.active",$user);
+    }
+
+    public function active($id){
+        $user = User :: find($id);
+        if($user->khoa == false)
+            $datakhoa =true;
+        else $datakhoa = false;
+        $data = DB::table('users')
+        ->where('id', $user->id)
+        ->update(['khoa' => $datakhoa]);
+        return redirect()->route('TableUser.index');
+    }
     /**
+     *
      * Remove the specified resource from storage.
      *
      * @param  int  $id
@@ -124,9 +134,8 @@ class TableUserController extends Controller
     {
         //
         $user = new User;
-        $data = $user ->DeleteUser($id);
-        $dsuser = $user -> DSUser();
-        $data = ['dsuser'=>$dsuser];
-        return view("user.index",$data);
+        $data = $user ->FindUser($id);
+        $data->delete();
+        return redirect()->route('TableUser.index');
     }
 }

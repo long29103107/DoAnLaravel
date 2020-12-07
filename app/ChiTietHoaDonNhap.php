@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use App\NhaCungCap;
 use App\NguyenLieu;
 use App\HoaDonNhap;
@@ -10,6 +11,7 @@ use App\HoaDonNhap;
 class ChiTietHoaDonNhap extends Model
 {
     //
+    use SoftDeletes;
     protected $table = 'chitiethoadonnhaps';
     public function hoadonnhap()
     {

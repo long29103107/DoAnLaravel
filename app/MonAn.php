@@ -3,11 +3,13 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use App\LoaiMonAn;
 
 class MonAn extends Model
 {
     //
+    use SoftDeletes;
     protected $table = 'monans';
 
     public function chitiethoadon()

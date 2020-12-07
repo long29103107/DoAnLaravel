@@ -19,6 +19,7 @@ class Nguyenlieu extends Migration
             $table->integer('don_gia');
             $table->string('tinh_trang');
             $table->timestamps();
+            $table->softDeletes();
             $table->engine='InnoDB';
         });
     }

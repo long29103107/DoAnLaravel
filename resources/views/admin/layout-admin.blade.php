@@ -32,6 +32,8 @@ Coded by www.creative-tim.com
   <link href="{{asset('assets-2/css/paper-dashboard.css?v=2.0.1')}}" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="{{asset('assets-2/demo/demo.css')}}" rel="stylesheet" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <style>
     .table-scroll{
         height:400px;
@@ -66,6 +68,13 @@ Coded by www.creative-tim.com
     }
     .main-panel{
         background-color:white;
+    }
+    .flex-user button a, .card-header button a {
+        color: white;
+    }
+    .flex-user button a:hover, .card-header button a:hover{
+        text-decoration: none;
+        color:black;
     }
  </style>
 
@@ -141,19 +150,17 @@ Coded by www.creative-tim.com
                 break;
         }
     }
-    // $('.block').click(function(){
-    //     var inner = document.getElementsByClassName("block").innerHTML;
-    //     if(inner == "Active"){
-    //         document.getElementsByClassName("block").innerHTML="Deactive"
-    //         $(".block").addClass("btn-info");
-    //         $(".block").removeClass("btn-warning");
-    //     }
-    //     else{
-    //         document.getElementsByClassName("block").innerHTML="Active"
-    //         $(".block").removeClass("btn-info");
-    //         $(".block").addClass("btn-warning");
-    //     }
-    // });
+    $('.block').click(function(){
+        var inner = document.getElementsByClassName("block").innerHTML;
+        if(inner == "Active"){
+            $(document).addClass("btn-info");
+            $(document).removeClass("btn-warning");
+        }
+        else{
+            $(document).removeClass("btn-info");
+            $(document).addClass("btn-warning");
+        }
+    });
   </script>
 </body>
 </html>

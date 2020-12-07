@@ -22,9 +22,11 @@
         <form action="{{route('TableUser.store')}}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
-                <label for="usr">Tài khoản</label>
-                <input type="text" class="form-control" id="" name="taikhoan">
+                <label for="taikhoan">Tài khoản</label>
+                <input type="text" class="form-control" id="taikhoan" name="taikhoan">
+
             </div>
+
             <div class="form-group">
                 <label for="usr">Password</label>
                 <input type="password" class="form-control" id="" name="password">
@@ -42,8 +44,13 @@
                 <input type="text" class="form-control" id="" name="diachi">
             </div>
             <div class="form-group">
-                <label for="usr">Phân Quyền</label>
-                <input type="text" class="form-control" id="usr" name="phanquyen">
+                <!-- <label for="usr">Phân Quyền</label>
+                <input type="text" class="form-control" id="usr" name="phanquyen"> -->
+                <label for="sel1">Phân Quyền</label>
+                <select class="form-control" id="sel1" name="phanquyen">
+                    <option value="1">Admin</option>
+                    <option value="0">User</option>
+                </select>
             </div>
             <div class="form-group">
                 <input type="submit" class="btn btn-success" id="usr">

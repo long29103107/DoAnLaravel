@@ -19,6 +19,7 @@ class UserSeeder extends Seeder
                 'ho_ten' => 'Nguyễn Văn A',
                 'sdt' => '034406638'.$i,
                 'dia_chi' => 'Huỳnh Thúc Kháng '.$i,
+                'khoa' => false,
                 'phan_quyen' => false,
             ]);
         }

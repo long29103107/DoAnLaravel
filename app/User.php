@@ -5,11 +5,13 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use DB;
 
 class User extends Authenticatable
 {
     use Notifiable;
+    use SoftDeletes;
 
     protected $table = "users";
     /**
@@ -44,40 +46,5 @@ class User extends Authenticatable
     }
     function FindUser($id){
         return User::find($id);
-    }
-    function CreateUser($data){
-        DB::table('users')->insert([
-            'tai_khoan' => $data['tai_khoan'],
-            'password' => bcrypt($data['password']),
-            'ho_ten' => $data['ho_ten'],
-            'sdt' => $data['sdt'],
-            'dia_chi' => $data['dia_chi'],
-            'phan_quyen' => true
-        ]);
-    }
-    function UpdateUser($data,$id){
-        $user = DB::table('users')
-              ->where('id', $id)
-              ->update([
-                'tai_khoan' => $data['tai_khoan'],
-                'ho_ten' => $data['ho_ten'],
-                'sdt' => $data['sdt'],
-                'dia_chi' => $data['dia_chi'],
-                'phan_quyen' => $data['phan_quyen'],
-              ]);
-    }
-    function UpdateActive($id){
-        $userup = FindUser($id);
-        $data = false;
-        if($userup->phan_quyen == false)
-            $data = true;
-        $user = DB::table('users')
-            ->where('id', $id)
-            ->update([
-              'phan_quyen' => $data,
-            ]);
-    }
-    function DeleteUser($id){
-        $user =DB::table('users')->where('id', $id)->delete();
     }
 }

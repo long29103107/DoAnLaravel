@@ -18,7 +18,8 @@ class Loaiban extends Migration
             $table->string('ten_loai');
             $table->integer('so_luong_ghe');
             $table->rememberToken();
-            $table->timestamps();$table->engine='InnoDB';
+            $table->timestamps();
+            $table->softDeletes();$table->engine='InnoDB';
         });
     }
 

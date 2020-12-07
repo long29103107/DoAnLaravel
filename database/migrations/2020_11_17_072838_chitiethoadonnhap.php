@@ -18,8 +18,9 @@ class Chitiethoadonnhap extends Migration
             $table->unsignedBigInteger('id_nguyen_lieu');
             $table->unsignedBigInteger('id_hoa_don_nhap');
             $table->integer('so_luong');
-            $table->integer('don_gia');      
+            $table->integer('don_gia');
             $table->timestamps();
+            $table->softDeletes();
             $table->engine='InnoDB';
         });
     }

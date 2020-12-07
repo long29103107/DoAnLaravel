@@ -16,7 +16,9 @@ class Loaimonan extends Migration
         Schema::create('loaimonans', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('ten_loai');
-            $table->timestamps();$table->engine='InnoDB';
+            $table->timestamps();
+            $table->softDeletes();
+            $table->engine='InnoDB';
         });
     }
 

@@ -20,6 +20,7 @@ class Chitiethoadon extends Migration
             $table->integer('so_luong');
             $table->integer('don_gia');
             $table->timestamps();
+            $table->softDeletes();
             $table->engine='InnoDB';
         });
     }

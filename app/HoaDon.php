@@ -3,10 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class HoaDon extends Model
 {
     //
+    use SoftDeletes;
     protected $table = 'hoadons';
     // public function monans()
     // {

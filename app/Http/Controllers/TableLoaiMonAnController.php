@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\LoaiMonAn;
+use DB;
 
 class TableLoaiMonAnController extends Controller
 {
@@ -31,6 +32,7 @@ class TableLoaiMonAnController extends Controller
     public function create()
     {
         //
+        return view("loaimonan.create");
     }
 
     /**
@@ -42,6 +44,10 @@ class TableLoaiMonAnController extends Controller
     public function store(Request $request)
     {
         //
+        $userdata = DB::table('loaimonans')->insert([
+            'ten_loai' => $request->tenloaimonan,
+        ]);s
+        return redirect()->route('TableLoaiMonAn.index');
     }
 
     /**

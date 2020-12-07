@@ -18,6 +18,7 @@ class Ban extends Migration
             $table->integer('so');
             $table->unsignedBigInteger('id_loai_ban');
             $table->timestamps();
+            $table->softDeletes();
             $table->engine='InnoDB';
         });
     }

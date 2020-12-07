@@ -25,6 +25,8 @@ Route::get('tableuser/create', 'TableUserController@create')->name('TableUser.cr
 Route::post('tableuser', 'TableUserController@store')->name('TableUser.store');
 Route::get('tableuser/{id}/edit', 'TableUserController@edit')->name('TableUser.edit');
 Route::put('tableuser/{id}', 'TableUserController@update')->name('TableUser.update');
+Route::get('tableuser/{id}/active', 'TableUserController@showactive')->name('TableUser.showactive');
+Route::put('tableuser/{id}/active', 'TableUserController@active')->name('TableUser.active');
 Route::get('tableuser/{id}', 'TableUserController@show')->name('TableUser.show');
 Route::delete('tableuser/{id}', 'TableUserController@destroy')->name('TableUser.destroy');
 
@@ -42,13 +44,15 @@ Route::get('tablechitiethoadonnhap', 'TableChiTietHoaDonNhapController@index')->
 Route::get('tablehoadon', 'TableHoaDonController@index')->name('TableHoaDon.index');
 
 //Table hoá đơn nhập
-Route::get('tablehoaodonnhap', 'TableHoaDonNhapController@index')->name('TableHoaDonNhap.index');
+Route::get('tablehoadonnhap', 'TableHoaDonNhapController@index')->name('TableHoaDonNhap.index');
 
 //Table loại bàn
 Route::get('tableloaiban', 'TableLoaiBanController@index')->name('TableLoaiBan.index');
 
 //Table loại món ăn
 Route::get('tableloaimonan', 'TableLoaiMonAnController@index')->name('TableLoaiMonAn.index');
+Route::get('tableloaimonan/create', 'TableLoaiMonAnController@create')->name('TableLoaiMonAn.create');
+Route::post('tableloaimonan', 'TableLoaiMonAnController@store')->name('TableLoaiMonAn.store');
 
 //Table món ăn
 Route::get('tablemonan', 'TableMonAnController@index')->name('TableMonAn.index');
@@ -62,14 +66,3 @@ Route::get('tablenhacungcap', 'TableNhaCungCapController@index')->name('TableNha
 
 Route::get('signin', 'SignInController@index')->name('SignIn.index');
 Route::get('signup', 'SignUpController@index')->name('SignUp.index');
-
-// Route::get('thu/{id}',function($id){
-//     $loaiban = LoaiBan :: find($id);
-//     foreach($loaiban->ban as $ban){
-//         echo $ban->So."<br>";
-//     }
-// });
-// Route::get('thu1',function(){
-//     $ban = User :: find(1);
-//     echo $ban->tai_khoan;
-// });

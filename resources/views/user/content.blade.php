@@ -47,7 +47,7 @@
                             <div class="flex-user">
                             <button class="btn btn-success"><a href="{{route('TableUser.edit',$user->id)}}"> Update</a></button>
                             <button class="btn btn-danger"><a href="{{route('TableUser.show',$user->id)}}">Delete</a></button>
-                            <button class="btn btn-warning block">Active</button></div>
+                            <button class="btn btn-warning block"><a href="{{route('TableUser.showactive',$user->id)}}"><?php if($user['khoa'] == true) echo "Active"; else echo "Deactive"; ?></a></button></div>
                             </td>
                             <td class="text-left">
                                 {{$user['tai_khoan']}}

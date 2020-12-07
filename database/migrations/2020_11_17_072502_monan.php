@@ -23,6 +23,7 @@ class Monan extends Migration
             $table->unsignedBigInteger('id_loai_mon_an');
             $table->rememberToken();
             $table->timestamps();
+            $table->softDeletes();
             $table->engine='InnoDB';
         });
     }

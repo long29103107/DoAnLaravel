@@ -17,6 +17,7 @@ class Hoadon extends Migration
             $table->bigIncrements('id');
             $table->integer('tong_tien');
             $table->timestamps();
+            $table->softDeletes();
             $table->engine='InnoDB';
         });
     }
