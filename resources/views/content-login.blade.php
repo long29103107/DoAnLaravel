@@ -12,19 +12,19 @@
                         <div class="col-md-4">
                             <div class="single_widget wow fadeIn" data-wow-duration="4s">
 
-                            <form>
+                            <form action="{{route('Login.post')}}" method="post" enctype="multipart/form-data">
                                 <div class="form-group text-center">
                                     <h1>Đăng Nhập</h1>
                                     <br/>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Tài khoản </label>
-                                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nhập tài khoản">
+                                    <input type="text" name="taikhoan" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nhập tài khoản">
 
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Mât khẩu</label>
-                                    <input style="margin:0;" type="password" class="form-control" id="exampleInputPassword1" placeholder="Nhập mật khẩu">
+                                    <input style="margin:0;" name="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Nhập mật khẩu">
                                 </div>
                                 <div class="form-check">
                                     <input type="checkbox" class="form-check-input" id="exampleCheck1">
@@ -39,6 +39,7 @@
                                    <span>Tạo tài khoản mới ?</span>
                                    <span><a href="#">Đăng ký</a></span>
                                 </div>
+                                {{ csrf_field() }}
                                 </form>
                             </div>
                         </div>

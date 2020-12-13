@@ -50,8 +50,8 @@
                                     <ul class="nav navbar-nav navbar-right">
                                         <li><a href="{{ route('Index.index') }}">Trang Chủ</a></li>
                                         <li><a href="#abouts">Menu</a></li>
-                                        <li><a href="{{ route('SignIn.index') }}">Đăng Nhập</a></li>
-                                        <li><a href="{{ route('SignUp.index') }}">Đăng Ký</a></li>
+                                        <li><a href="#">Đăng Nhập</a></li>
+                                        <li><a href="#">Đăng Ký</a></li>
                                         <!-- <li>
                                             <a style="padding:0 10px;" href="#profile">
                                                 <img style="width:50px" class="img-circle" src="assets-2/img/faces/ayo-ogunseinde-2.jpg" alt="">

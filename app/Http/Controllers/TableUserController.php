@@ -5,9 +5,34 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use DB;
-
+use Auth;
 class TableUserController extends Controller
 {
+
+    public function getLogin()
+    {
+        return view('login');//return ra trang login để đăng nhập
+    }
+
+    public function postLogin(Request $request)
+    {
+        $arr = [
+            'tai_khoan' => $request->taikhoan,
+            'password' => $request->password,
+        ];
+        // if ($request->remember == trans('remember.Remember Me')) {
+        //     $remember = true;
+        // } else {
+        //     $remember = false;
+        // }
+        //kiểm tra trường remember có được chọn hay không
+
+        if (Auth::guard('user')->attempt($arr)) {
+            return redirect()->intended('dashboard');
+        } else {
+            echo "Tài khoản hoặc mật khẩu không chính xác. <a href='javascript: history.go(-1)'>Trở lại</a>";
+        }
+    }
     /**
      * Display a listing of the resource.
      *

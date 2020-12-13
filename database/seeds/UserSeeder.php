@@ -12,16 +12,16 @@ class UserSeeder extends Seeder
     public function run()
     {
         //
-        for($i = 1;$i<6;$i++){
+        //for($i = 1;$i<6;$i++){
             DB::table('users')->insert([
-                'tai_khoan' => 'user'.$i,
-                'password' => bcrypt('password'.$i),
+                'tai_khoan' => 'user1',
+                'password' => bcrypt('123'),
                 'ho_ten' => 'Nguyễn Văn A',
-                'sdt' => '034406638'.$i,
-                'dia_chi' => 'Huỳnh Thúc Kháng '.$i,
+                'sdt' => '034406638',
+                'dia_chi' => 'Huỳnh Thúc Kháng ',
                 'khoa' => false,
                 'phan_quyen' => false,
             ]);
-        }
+        //}
     }
 }

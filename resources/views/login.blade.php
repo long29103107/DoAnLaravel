@@ -4,7 +4,7 @@
 @endsection
 
 @section("content")
-    @include("content-signin")
+    @include("content-login")
 @endsection
 
 @section("footer")

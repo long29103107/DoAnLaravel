@@ -17,7 +17,6 @@ use App\User;
 Route::get('/', 'IndexController@index')->name('Index.index');
 Route::get('useradmin', 'UserAdminController@index')->name('UserAdmin.index');
 Route::get('dashboard', 'DashboardController@index')->name('Dashboard.index');
-// Route::get('tables', 'TablesController@index')->name('Tables.index');
 
 //Table user
 Route::get('tableuser', 'TableUserController@index')->name('TableUser.index');
@@ -29,7 +28,8 @@ Route::get('tableuser/{id}/active', 'TableUserController@showactive')->name('Tab
 Route::put('tableuser/{id}/active', 'TableUserController@active')->name('TableUser.active');
 Route::get('tableuser/{id}', 'TableUserController@show')->name('TableUser.show');
 Route::delete('tableuser/{id}', 'TableUserController@destroy')->name('TableUser.destroy');
-
+Route::get('login', 'TableUserController@getLogin')->name('Login.get');
+Route::post('login', 'TableUserController@postLogin')->name('Login.post');
 
 //Table bàn
 Route::get('tableban', 'TableBanController@index')->name('TableBan.index');
@@ -68,5 +68,7 @@ Route::get('tablenguyenlieu', 'TableNguyenLieuController@index')->name('TableNgu
 Route::get('tablenhacungcap', 'TableNhaCungCapController@index')->name('TableNhaCungCap.index');
 
 
-Route::get('signin', 'SignInController@index')->name('SignIn.index');
-Route::get('signup', 'SignUpController@index')->name('SignUp.index');
+// Auth::routes();
+
+// Route::get('/home', 'HomeController@index')->name('home');
+
