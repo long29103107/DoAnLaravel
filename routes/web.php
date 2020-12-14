@@ -87,6 +87,13 @@ Route::delete('tablemonan/{id}', 'TableMonAnController@destroy')->name('TableMon
 
 //Table nguyên liệu
 Route::get('tablenguyenlieu', 'TableNguyenLieuController@index')->name('TableNguyenLieu.index');
+Route::get('tablenguyenlieu/create', 'TableNguyenLieuController@create')->name('TableNguyenLieu.create');
+Route::post('tablenguyenlieu', 'TableNguyenLieuController@store')->name('TableNguyenLieu.store');
+Route::get('tablenguyenlieu/{id}/edit', 'TableNguyenLieuController@edit')->name('TableNguyenLieu.edit');
+Route::put('tablenguyenlieu/{id}', 'TableNguyenLieuController@update')->name('TableNguyenLieu.update');
+Route::get('tablenguyenlieu/{id}', 'TableNguyenLieuController@show')->name('TableNguyenLieu.show');
+Route::delete('tablenguyenlieu/{id}', 'TableNguyenLieuController@destroy')->name('TableNguyenLieu.destroy');
+
 
 //Table nhà cung cấp
 Route::get('tablenhacungcap', 'TableNhaCungCapController@index')->name('TableNhaCungCap.index');

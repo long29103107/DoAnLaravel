@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\MonAn;
-
+use App\LoaiMonAn;
+use DB;
 class TableMonAnController extends Controller
 {
     //
@@ -30,7 +31,7 @@ class TableMonAnController extends Controller
      */
     public function create()
     {
-        //
+        return view("monan.create");
     }
 
     /**
@@ -41,7 +42,25 @@ class TableMonAnController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $monan = new MonAn;
+        if($request->hinhanh == null)
+        {
+            $monan->hinh_anh = "Noimg.png";    
+        }else
+        {
+            $ext = $request->hinhanh->getClientOriginalExtension();
+            $file = $monan->get()->count().".".$ext;
+            $monan->hinh_anh = $file;
+            $request->hinhanh->storeAs('assets-2/img',$file);
+        }
+        $monan->ten_mon_an = $request->tenmonan;
+        $monan->gia = $request->gia;
+        $monan->mo_ta = $request->mota;
+        
+        $monan->id_loai_mon_an = $request->loaimonan;
+        $monan->save();
+        return redirect()->route('TableMonAn.index');
+
     }
 
     /**
@@ -52,7 +71,12 @@ class TableMonAnController extends Controller
      */
     public function show($id)
     {
-        //
+        $MonAn = new MonAn;
+        $datamonan = $MonAn -> FindMonAn($id);
+        $loaimonan = new LoaiMonAn;
+        $dataloaimonan = $loaimonan -> FindLoaiMonAn($datamonan->id_loai_mon_an);
+        $data = ['datamonan'=>$datamonan,'dataloaimonan'=>$dataloaimonan];
+        return view("monan.delete",$data);
     }
 
     /**
@@ -63,7 +87,12 @@ class TableMonAnController extends Controller
      */
     public function edit($id)
     {
-        //
+        
+        $monan = new MonAn;
+        $loaimonan = new loaiMonAn;
+        $dsloaimonan = $loaimonan->DSLoaiMonAn();
+        $data = ['monan'=>$monan->FindMonAn($id),'dsloaimonan'=>$dsloaimonan,'loaimonanhientai'=>$loaimonan->FindLoaiMonAn($monan->FindMonAn($id)->id_loai_mon_an)];
+        return view("monan.update",$data);
     }
 
     /**
@@ -75,7 +104,25 @@ class TableMonAnController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $monan = new MonAn;
+        $data = $monan ->FindMonAn($id);
+        if($request->hinhanh != null)
+        {
+        $ext = $request->hinhanh->getClientOriginalExtension();
+        $file = $monan->get()->count().".".$ext;
+        $request->hinhanh->storeAs('assets-2/img',$file);
+        $data->hinh_anh = $file;
+        }
+        else
+        {
+            $data->hinh_anh = $data->hinh_anh;
+        }
+        $data->ten_mon_an = $request->tenmonan;
+        $data->gia = $request->gia;
+        $data->mo_ta = $request->mota;
+        $data->id_loai_mon_an = $request->loaimonan;
+        $data->save();
+        return redirect()->route('TableMonAn.index');
     }
 
     /**
@@ -86,6 +133,9 @@ class TableMonAnController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $MonAn = new MonAn;
+        $data = $MonAn ->FindMonAn($id);
+        $data->delete();
+        return redirect()->route('TableMonAn.index');
     }
 }

@@ -4,7 +4,7 @@
             <div class="card card-plain">
 
                 <div class="card-header">
-                    <button style="float:left;"  class="btn btn-primary">Create</button>
+                <button style="float:left;"  class="btn btn-primary"><a href="{{route('TableMonAn.create')}}">Create</a></button>
                     <form class="form">
                         <div class="input-group no-border">
                             <input type="text" value="" class="form-control" placeholder="Search...">
@@ -41,15 +41,16 @@
                         <tbody>
                             @foreach($dsmonan as $ma)
                         <tr>
-                        <td class="table-button">
-                                <button class="btn btn-success">Update</button>
-                                <button class="btn btn-danger">Delete</button>
-                            </td>
+                        <td class="flex-user">
+                        <button style="float:left;" class="btn btn-success"><a href="{{route('TableMonAn.edit',$ma->id)}}">Update</a></button>
+                        <button style="float:left;" class="btn btn-danger"><a href="{{route('TableMonAn.show',$ma->id)}}">Delete</a></button>
+                        </td>
                             <td class="text-left">
                             {{$ma['ten_mon_an']}}
                             </td>
                             <td class="text-left">
-                                {{$ma['hinh_anh']}}
+                                <img style="max-width: 200px;" src="{{asset('assets-2/img/'.$ma['hinh_anh'])}}">
+                                
                             </td>
                             <td class="text-left">
                                 {{$ma['mo_ta']}}
@@ -63,6 +64,7 @@
                         </tr>
                         @endforeach
                         </tbody>
+                        
                     </table>
                     </div>
                 </div>
