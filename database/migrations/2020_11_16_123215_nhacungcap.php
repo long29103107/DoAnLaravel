@@ -18,7 +18,6 @@ class Nhacungcap extends Migration
             $table->string('ten');
             $table->string('dia_chi');
             $table->string('sdt');
-            $table->string('tinh_trang');
             $table->timestamps();
             $table->softDeletes();
             $table->engine='InnoDB';

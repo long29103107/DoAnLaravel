@@ -17,7 +17,6 @@ class NhaCungCapSeeder extends Seeder
                 'ten' => 'Nhà cung cấp '.$i,
                 'dia_chi' => 'Hi hi đố anh biết part'.$i,
                 'sdt' => '030618112'.$i,
-                'tinh_trang' => 'null',
             ]);
         }
     }

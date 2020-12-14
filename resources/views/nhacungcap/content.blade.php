@@ -4,7 +4,7 @@
             <div class="card card-plain">
 
                 <div class="card-header">
-                    <button style="float:left;"  class="btn btn-primary">Create</button>
+                    <button style="float:left;"  class="btn btn-primary"><a href="{{route('TableNhaCungCap.create')}}">Create</a></button>
                     <form class="form">
                         <div class="input-group no-border">
                             <input type="text" value="" class="form-control" placeholder="Search...">
@@ -31,16 +31,13 @@
                         <th>
                             Số điện thoại
                         </th>
-                        <th>
-                            Tình trạng
-                        </th>
                         </thead>
                         <tbody>
                             @foreach($dsnhacungcap as $ncc)
                         <tr>
                         <td class="table-button">
-                                <button class="btn btn-success">Update</button>
-                                <button class="btn btn-danger">Delete</button>
+                            <button class="btn btn-success"><a href="{{route('TableNhaCungCap.edit',$ncc->id)}}">Update</a></button>
+                            <button class="btn btn-danger"><a href="{{route('TableNhaCungCap.show',$ncc->id)}}">Delete</a></button>
                             </td>
                             <td class="text-left">
                                 {{$ncc['ten']}}
@@ -50,9 +47,6 @@
                             </td>
                             <td class="text-left">
                                 {{$ncc['dia_chi']}}
-                            </td>
-                            <td class="text-left">
-                                {{$ncc['tinh_trang']}}
                             </td>
                         </tr>
                         @endforeach

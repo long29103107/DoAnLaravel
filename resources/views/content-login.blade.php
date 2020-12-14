@@ -27,7 +27,7 @@
                                     <input style="margin:0;" name="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Nhập mật khẩu">
                                 </div>
                                 <div class="form-check">
-                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                    <input type="checkbox" name="remember"  class="form-check-input" id="exampleCheck">
                                     <label class="form-check-label" for="exampleCheck1">Nhớ mật khẩu</label>
                                 </div>
                                 <br/>

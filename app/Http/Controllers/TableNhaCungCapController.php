@@ -31,6 +31,7 @@ class TableNhaCungCapController extends Controller
     public function create()
     {
         //
+        return view("nhacungcap.create");
     }
 
     /**
@@ -42,6 +43,12 @@ class TableNhaCungCapController extends Controller
     public function store(Request $request)
     {
         //
+        $nhacungcap = new NhaCungCap;
+        $nhacungcap->ten = $request->ten;
+        $nhacungcap->dia_chi = $request->diachi;
+        $nhacungcap->sdt = $request->sodienthoai;
+        $nhacungcap->save();
+        return redirect()->route('TableNhaCungCap.index');
     }
 
     /**
@@ -53,6 +60,9 @@ class TableNhaCungCapController extends Controller
     public function show($id)
     {
         //
+        $nhacungcap = new NhaCungCap;
+        $nhacungcap = $nhacungcap->FindNhaCungCap($id);
+        return view("nhacungcap.delete",$nhacungcap);
     }
 
     /**
@@ -64,6 +74,9 @@ class TableNhaCungCapController extends Controller
     public function edit($id)
     {
         //
+        $nhacungcap = new NhaCungCap;
+        $data = $nhacungcap ->FindNhaCungCap($id);
+        return view("nhacungcap.update",$data);
     }
 
     /**
@@ -76,6 +89,13 @@ class TableNhaCungCapController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $nhacungcap = new NhaCungCap;
+        $data = $nhacungcap ->FindNhaCungCap($id);
+        $nhacungcap->ten = $request->ten;
+        $nhacungcap->dia_chi = $request->diachi;
+        $nhacungcap->sdt = $request->sodienthoai;
+        $nhacungcap->save();
+        return redirect()->route('TableNhaCungCap.index');
     }
 
     /**
@@ -87,5 +107,9 @@ class TableNhaCungCapController extends Controller
     public function destroy($id)
     {
         //
+        $nhacungcap = new NhaCungCap;
+        $data = $nhacungcap ->FindNhaCungCap($id);
+        $data->delete();
+        return redirect()->route('TableNhaCungCap.index');
     }
 }
