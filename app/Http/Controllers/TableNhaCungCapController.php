@@ -61,8 +61,8 @@ class TableNhaCungCapController extends Controller
     {
         //
         $nhacungcap = new NhaCungCap;
-        $nhacungcap = $nhacungcap->FindNhaCungCap($id);
-        return view("nhacungcap.delete",$nhacungcap);
+        $data = $nhacungcap->FindNhaCungCap($id);
+        return view("nhacungcap.delete",$data);
     }
 
     /**
@@ -91,10 +91,10 @@ class TableNhaCungCapController extends Controller
         //
         $nhacungcap = new NhaCungCap;
         $data = $nhacungcap ->FindNhaCungCap($id);
-        $nhacungcap->ten = $request->ten;
-        $nhacungcap->dia_chi = $request->diachi;
-        $nhacungcap->sdt = $request->sodienthoai;
-        $nhacungcap->save();
+        $data->ten = $request->ten;
+        $data->dia_chi = $request->diachi;
+        $data->sdt = $request->sodienthoai;
+        $data->save();
         return redirect()->route('TableNhaCungCap.index');
     }
 

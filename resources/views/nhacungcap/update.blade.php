@@ -24,15 +24,15 @@
          @csrf
          <div class="form-group">
                 <label for="tenloaimonan">Tên nhà cung cấp</label>
-                <input type="text" class="form-control" value="{{$ten}}" name="ten" id="tenloaimonan" name="tenloaimonan">
+                <input type="text" class="form-control" value="{{$ten}}" name="ten" id="tenloaimonan">
             </div>
             <div class="form-group">
                 <label for="tenloaimonan">Địa chỉ</label>
-                <input type="text" class="form-control" name="diachi" value="{{$dia_chi}}" id="tenloaimonan" name="tenloaimonan">
+                <input type="text" class="form-control" name="diachi" value="{{$dia_chi}}" id="tenloaimonan">
             </div>
             <div class="form-group">
                 <label for="tenloaimonan">Số điện thoại</label>
-                <input type="text" class="form-control" value="{{$sdt}}" name="sodienthoai" id="tenloaimonan" name="tenloaimonan">
+                <input type="text" class="form-control" value="{{$sdt}}" name="sodienthoai" id="tenloaimonan" >
             </div>
             <div class="form-group">
                 <input type="submit" class="btn btn-success" id="">

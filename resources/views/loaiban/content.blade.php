@@ -33,8 +33,8 @@
                             @foreach($dsloaiban as $lb)
                         <tr>
                         <td class="table-button">
-                                <button class="btn btn-success"><a href="{{route('TableBan.edit',$lb->id)}}">Update</a></button>
-                                <button class="btn btn-danger"><a href="{{route('TableBan.show',$lb->id)}}">Delete</a></button>
+                                <button class="btn btn-success"><a href="{{route('TableLoaiBan.edit',$lb->id)}}">Update</a></button>
+                                <button class="btn btn-danger"><a href="{{route('TableLoaiBan.show',$lb->id)}}">Delete</a></button>
                             </td>
                             <td class="text-left">
                             {{$lb['ten_loai']}}

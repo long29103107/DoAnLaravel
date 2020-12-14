@@ -15,7 +15,7 @@
         <div class="col-md-12">
             <div class="card card-plain">
                 <div class="card-header">
-                    <h4 style="display:inline;" class="card-title">Xoá User</h4>
+                    <h4 style="display:inline;" class="card-title">Xoá Nhà Cung Cấp</h4>
                 </div>
             </div>
         <form action="{{route('TableNhaCungCap.destroy',$id)}}" method="post" enctype="multipart/form-data">

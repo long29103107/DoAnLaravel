@@ -76,6 +76,9 @@ Coded by www.creative-tim.com
         text-decoration: none;
         color:black;
     }
+    .table-button .btn a{
+        color:white;
+    }
  </style>
 
 </head>

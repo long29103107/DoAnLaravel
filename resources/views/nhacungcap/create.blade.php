@@ -22,16 +22,16 @@
         <form action="{{route('TableNhaCungCap.store')}}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
-                <label for="tenloaimonan">Tên nhà cung cấp</label>
-                <input type="text" class="form-control" name="ten" id="tenloaimonan" name="tenloaimonan">
+                <label for="">Tên nhà cung cấp</label>
+                <input type="text" class="form-control" name="ten" id="" >
             </div>
             <div class="form-group">
-                <label for="tenloaimonan">Địa chỉ</label>
-                <input type="text" class="form-control" name="diachi" id="tenloaimonan" name="tenloaimonan">
+                <label for="">Địa chỉ</label>
+                <input type="text" class="form-control" name="diachi" id="">
             </div>
             <div class="form-group">
-                <label for="tenloaimonan">Số điện thoại</label>
-                <input type="text" class="form-control" name="sodienthoai" id="tenloaimonan" name="tenloaimonan">
+                <label for="">Số điện thoại</label>
+                <input type="text" class="form-control" name="sodienthoai" id="">
             </div>
             <div class="form-group">
                 <input type="submit" class="btn btn-success" id="usr">
