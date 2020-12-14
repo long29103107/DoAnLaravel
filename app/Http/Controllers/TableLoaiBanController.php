@@ -32,6 +32,7 @@ class TableLoaiBanController extends Controller
     public function create()
     {
         //
+
         return view("loaiban.create");
     }
 
