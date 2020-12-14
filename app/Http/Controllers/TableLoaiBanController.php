@@ -32,6 +32,7 @@ class TableLoaiBanController extends Controller
     public function create()
     {
         //
+        return view("loaiban.create");
     }
 
     /**
@@ -43,6 +44,12 @@ class TableLoaiBanController extends Controller
     public function store(Request $request)
     {
         //
+
+        $loaiban = new LoaiBan;
+        $loaiban->ten_loai = $request->tenloaiban;
+        $loaiban->so_luong_ghe = $request->soluongghe;
+        $loaiban->save();
+        return redirect()->route('TableLoaiBan.index');
     }
 
     /**
@@ -54,6 +61,9 @@ class TableLoaiBanController extends Controller
     public function show($id)
     {
         //
+        $loaiban = new LoaiBan;
+        $loaiban = $loaiban->FindLoaiBan($id);
+        return view("loaiban.delete",$loaiban);
     }
 
     /**
@@ -65,6 +75,9 @@ class TableLoaiBanController extends Controller
     public function edit($id)
     {
         //
+        $loaiban = new LoaiBan;
+        $data = $loaiban ->FindLoaiBan($id);
+        return view("loaiban.update",$data);
     }
 
     /**
@@ -77,6 +90,12 @@ class TableLoaiBanController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $loaiban = new LoaiBan;
+        $data = $loaiban ->FindLoaiBan($id);
+        $loaiban->ten_loai = $request->tenloaiban;
+        $loaiban->so_luong_ghe = $request->soluongghe;
+        $loaiban->save();
+        return redirect()->route('TableLoaiBan.index');
     }
 
     /**
@@ -88,5 +107,9 @@ class TableLoaiBanController extends Controller
     public function destroy($id)
     {
         //
+        $loaiban = new LoaiBan;
+        $data = $loaiban ->FindLoaiBan($id);
+        $data->delete();
+        return redirect()->route('TableLoaiBan.index');
     }
 }
