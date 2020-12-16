@@ -30,7 +30,7 @@ class TableHoaDonController extends Controller
      */
     public function create()
     {
-        //
+        return view("hoadon.create");
     }
 
     /**
@@ -41,7 +41,7 @@ class TableHoaDonController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $Hoadon = new hoadon();
     }
 
     /**

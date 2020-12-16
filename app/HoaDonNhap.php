@@ -24,10 +24,6 @@ class HoaDonNhap extends Model
     {
         return $this->hasOne('App\NhaCungCap','id_nha_cung_cap','id');
     }
-    function DSHoaDonNhap(){
-        $hoadonnhap = HoaDonNhap::all();
-        return $hoadonnhap;
-    }
     function FindHoaDonNhap($id){
         return HoaDonNhap::find($id);
     }

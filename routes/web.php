@@ -48,6 +48,7 @@ Route::get('tablechitiethoadonnhap', 'TableChiTietHoaDonNhapController@index')->
 
 //Table hoá đơn
 Route::get('tablehoadon', 'TableHoaDonController@index')->name('TableHoaDon.index');
+Route::get('tablehoadon/create', 'TableHoaDonController@create')->name('TableHoaDon.create');
 
 //Table hoá đơn nhập
 Route::get('tablehoadonnhap', 'TableHoaDonNhapController@index')->name('TableHoaDonNhap.index');

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\HoaDonNhap;
+use App\NhaCungCap;
 
 class TableHoaDonNhapController extends Controller
 {
@@ -16,9 +17,8 @@ class TableHoaDonNhapController extends Controller
      */
     public function index()
     {
-        //
-        $hoadonnhap = new HoaDonNhap;
-        $dshoadonnhap = $hoadonnhap -> DSHoaDonNhap();
+        
+        $dshoadonnhap = HoaDonNhap::all();
         $data = ['dshoadonnhap'=>$dshoadonnhap];
         return view("hoadonnhap.index",$data);
     }
@@ -30,7 +30,9 @@ class TableHoaDonNhapController extends Controller
      */
     public function create()
     {
-        //
+        $DSNhaCungCap = NhaCungCap::all();
+        $data=['data'=>$DSNhaCungCap];
+        return view("hoadonnhap.create",$data);
     }
 
     /**
@@ -41,7 +43,10 @@ class TableHoaDonNhapController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $HoaDonNhap = new HoaDonNhap;
+        $HoaDonNhap->id_nha_cung_cap = $request->Id_Nha_Cung_Cap;
+        $HoaDonNhap->save();
+        return redirect()->route('TableHoaDonNhap.index');
     }
 
     /**

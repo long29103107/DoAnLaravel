@@ -4,7 +4,7 @@
             <div class="card card-plain">
 
                 <div class="card-header">
-                    <button style="float:left;"  class="btn btn-primary">Create</button>
+                    <a href="{{route('TableLoaiBan.create')}}"><button style="float:left;"  class="btn btn-primary">Create</button></a>
                     <form class="form">
                         <div class="input-group no-border">
                             <input type="text" value="" class="form-control" placeholder="Search...">
