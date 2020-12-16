@@ -18,6 +18,16 @@ Route::get('/', 'IndexController@index')->name('Index.index');
 Route::get('useradmin', 'UserAdminController@index')->name('UserAdmin.index');
 Route::get('dashboard', 'DashboardController@index')->name('Dashboard.index');
 
+
+//Đăng nhập
+Route::get('login', 'TableUserController@getLogin')->name('Login.get');
+Route::post('login', 'TableUserController@postLogin')->name('Login.post');
+
+//Đăng xuất
+Route::get('logout', 'TableUserController@logout')->name('Logout');
+
+
+
 //Table user
 Route::get('tableuser', 'TableUserController@index')->name('TableUser.index');
 Route::get('tableuser/create', 'TableUserController@create')->name('TableUser.create');

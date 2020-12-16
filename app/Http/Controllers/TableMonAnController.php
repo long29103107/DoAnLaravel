@@ -49,7 +49,7 @@ class TableMonAnController extends Controller
         }else
         {
             $ext = $request->hinhanh->getClientOriginalExtension();
-            $file = $monan->get()->count().".".$ext;
+            $file = date('YmdHis').rand(1,999999).".".$ext;
             $monan->hinh_anh = $file;
             $request->hinhanh->storeAs('assets-2/img',$file);
         }

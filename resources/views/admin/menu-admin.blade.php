@@ -6,8 +6,8 @@
           </div>
           <!-- <p>CT</p> -->
         </a>
-        <a href="https://www.creative-tim.com" class="logo-normal">
-          Ho Gia Bao
+        <a href="#" class="logo-normal">
+        {{Auth::guard('user')->user()->ho_ten}}
           <!-- <div class="logo-image-big">
             <img src="assets-2/img/logo-big.png">
           </div> -->

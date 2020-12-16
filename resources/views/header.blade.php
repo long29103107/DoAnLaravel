@@ -50,14 +50,28 @@
                                     <ul class="nav navbar-nav navbar-right">
                                         <li><a href="{{ route('Index.index') }}">Trang Chủ</a></li>
                                         <li><a href="#abouts">Menu</a></li>
-                                        <li><a href="#">Đăng Nhập</a></li>
+                                        @if(Auth::guard('user')->check()==false)
+                                        <li><a href="{{route('Login.get')}}">Đăng Nhập</a></li>
                                         <li><a href="#">Đăng Ký</a></li>
+                                        @endif
+                                        
+                                        @if(Auth::guard('user')->check())
+                                        <li class="nav-item btn-rotate dropdown">
+                                            <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            {{Auth::guard('user')->user()->ho_ten}}
+                                            </a>
+                                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                                                <a class="dropdown-item" href="{{route('Logout')}}">Đăng Xuất</a>
+                                            </div>
+                                        </li>
+                                        @endif
                                         <!-- <li>
                                             <a style="padding:0 10px;" href="#profile">
                                                 <img style="width:50px" class="img-circle" src="assets-2/img/faces/ayo-ogunseinde-2.jpg" alt="">
                                                 <span>abc</span>
                                              </a>
                                         </li> -->
+                                    </ul>
                                 </div><!-- /.navbar-collapse -->
                             </div><!-- /.container-fluid -->
                         </nav>
