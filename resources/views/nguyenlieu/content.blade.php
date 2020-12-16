@@ -4,14 +4,14 @@
             <div class="card card-plain">
 
                 <div class="card-header">
-                    <button style="float:left;"  class="btn btn-primary">Create</button>
-                    <form class="form">
+                    <button style="float:left;"  class="btn btn-primary"><a href="{{route('TableNguyenLieu.create')}}">Create</a></button>
+                    <form class="form" action="#"  method="post" enctype="multipart/form-data">
                         <div class="input-group no-border">
-                            <input type="text" value="" class="form-control" placeholder="Search...">
+                            <input type="text" value="" class="form-control" name="timkiem" placeholder="Search...">
                             <div class="input-group-append">
-                            <div class="input-group-text">
+                            <button class="btn btn-success">
                                 <i class="nc-icon nc-zoom-split"></i>
-                            </div>
+                            </button>
                             </div>
                         </div>
                     </form>
@@ -35,9 +35,9 @@
                         <tbody>
                             @foreach($dsnguyenlieu as $nl)
                         <tr>
-                        <td class="table-button">
-                                <button class="btn btn-success">Update</button>
-                                <button class="btn btn-danger">Delete</button>
+                        <td class="flex-user">
+                                <button style="float:left;" class="btn btn-success"><a href="{{route('TableNguyenLieu.edit',$nl->id)}}">Update</a></button>
+                                <button style="float:left;" class="btn btn-danger"><a href="{{route('TableNguyenLieu.show',$nl->id)}}">Delete</a></button>
                             </td>
                             <td class="text-left">
                             {{$nl['ten']}}

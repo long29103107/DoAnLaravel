@@ -83,7 +83,6 @@ class TableBanController extends Controller
         $loaiban = new LoaiBan;
         $dsloaiban = $loaiban ->DSLoaiBan();
         $ban = new Ban;
-        $loaiban1 = new LoaiBan;
         $data = ['ban' =>$ban->FindBan($id),'dsloaiban'=>$dsloaiban,'loaiban'=>$loaiban->FindLoaiBan($ban->FindBan($id)->id_loai_ban)];
         return view("ban.update",$data);
     }
