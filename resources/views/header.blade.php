@@ -60,8 +60,8 @@
                                             <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             {{Auth::guard('user')->user()->ho_ten}}
                                             </a>
-                                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                                                <a class="dropdown-item" href="{{route('Logout')}}">Đăng Xuất</a>
+                                            <div class="dropdown-menu dropdown-menu-right" style="width: 100%; min-width: 0px; text-align: center;border: 1px solid black; " aria-labelledby="navbarDropdownMenuLink">
+                                                <a class="dropdown-item nav-link"  href="{{route('Logout')}}">Đăng Xuất</a>
                                             </div>
                                         </li>
                                         @endif
