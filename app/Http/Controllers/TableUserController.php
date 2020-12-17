@@ -37,8 +37,8 @@ class TableUserController extends Controller
             {
             return redirect()->route('Index.index');
             }
-        }    
-        echo "Tài khoản hoặc mật khẩu không chính xác. <a href='javascript: history.go(-1)'>Trở lại</a>";
+        }
+        return redirect()->route('Login.get')->with('status', 'Tài khoản hoặc mật khẩu không chính xác');
         
     }
     public function logout(){

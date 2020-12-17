@@ -53,14 +53,16 @@
                                         @if(Auth::guard('user')->check()==false)
                                         <li><a href="{{route('Login.get')}}">Đăng Nhập</a></li>
                                         <li><a href="#">Đăng Ký</a></li>
-                                        @endif
-                                        
-                                        @if(Auth::guard('user')->check())
+                                        @else
                                         <li class="nav-item btn-rotate dropdown">
                                             <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             {{Auth::guard('user')->user()->ho_ten}}
                                             </a>
                                             <div class="dropdown-menu dropdown-menu-right" style="width: 100%; min-width: 0px; text-align: center;border: 1px solid black; " aria-labelledby="navbarDropdownMenuLink">
+                                            @if(Auth::guard('user')->user()->phan_quyen)
+                                                <a class="dropdown-item nav-link"  href="{{route('Dashboard.index')}}">Quản Lý</a>
+                                                <br>
+                                                @endif
                                                 <a class="dropdown-item nav-link"  href="{{route('Logout')}}">Đăng Xuất</a>
                                             </div>
                                         </li>
