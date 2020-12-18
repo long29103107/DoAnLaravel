@@ -51,7 +51,9 @@
                                         <li><a href="{{ route('Index.index') }}">Trang Chủ</a></li>
                                         <li><a href="#abouts">Menu</a></li>
                                         @if(Auth::guard('user')->check()==false)
-                                        <li><a href="{{route('Login.get')}}">Đăng Nhập</a></li>
+                                            @if(!isset($title))
+                                            <li><a href="{{route('Login.get')}}">Đăng Nhập</a></li>
+                                            @endif
                                         <li><a href="#">Đăng Ký</a></li>
                                         @else
                                         <li class="nav-item btn-rotate dropdown">

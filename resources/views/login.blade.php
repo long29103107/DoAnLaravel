@@ -1,3 +1,6 @@
+<?php
+    $title='Login'
+?>
 @extends("layout")
 @section("header")
     @include("header")

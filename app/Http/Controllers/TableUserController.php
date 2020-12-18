@@ -16,29 +16,33 @@ class TableUserController extends Controller
     public function postLogin(Request $request)
     {
         $data = DB::table('users')->where('tai_khoan','=',$request->taikhoan)->select('phan_quyen','ho_ten')->get()->get(0);
-        $arr = [
-            'tai_khoan' => $request->taikhoan,
-            'password' => $request->password,
-            'ho_ten' => $data->ho_ten,
-        ];
-        if ($request->remember == true) {
-            $remember = true;
-        } else {
-            $remember = false;
-        }
-        //kiểm tra trường remember có được chọn hay không
-    
-        if (Auth::guard('user')->attempt($arr))
+        if($data != null)
         {
-            if($data->phan_quyen == 1) 
+            $arr = [
+                'tai_khoan' => $request->taikhoan,
+                'password' => $request->password,
+                'ho_ten' => $data->ho_ten,
+            ];
+            if ($request->remember == true) {
+                $remember = true;
+            } else {
+                $remember = false;
+            }
+            //kiểm tra trường remember có được chọn hay không
+        
+            if (Auth::guard('user')->attempt($arr))
             {
-            return redirect()->route('Dashboard.index');
-            }else
-            {
-            return redirect()->route('Index.index');
+                if($data->phan_quyen == 1) 
+                {
+                return redirect()->route('Dashboard.index');
+                }else
+                {
+                return redirect()->route('Index.index');
+                }
             }
         }
-        return redirect()->route('Login.get')->with('status', 'Tài khoản hoặc mật khẩu không chính xác');
+            return redirect()->route('Login.get')->with('status', 'Tài khoản hoặc mật khẩu không chính xác');
+            
         
     }
     public function logout(){
