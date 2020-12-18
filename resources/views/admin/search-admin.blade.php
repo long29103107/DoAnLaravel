@@ -23,13 +23,16 @@
                   <a class="dropdown-item" href="#">Something else here</a>
                 </div>
               </li>
-              <li class="nav-item">
-                <a class="nav-link btn-rotate" href="javascript:;">
-                  <i class="nc-icon nc-settings-gear-65"></i>
-                  <p>
-                    <span class="d-lg-none d-md-block">Account</span>
-                  </p>
+              <li class="nav-item btn-rotate dropdown">
+                <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="nc-icon nc-settings-gear-65"></i>
                 </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                  
+                  <a class="dropdown-item" href="{{ route('Index.index')}}">Trang Chủ</a>
+                  <a class="dropdown-item" href="{{route('Logout')}}">Đăng Xuất</a>
+                </div>
               </li>
+            
             </ul>
           </div>

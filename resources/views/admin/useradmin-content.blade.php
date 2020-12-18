@@ -9,7 +9,7 @@
                 <div class="author">
                   <a href="#">
                     <img class="avatar border-gray" src="assets-2/img/mike.jpg" alt="...">
-                    <h5 class="title">Ho Gia Bao</h5>
+                    <h5 class="title"> {{Auth::guard('user')->user()->ho_ten}}</h5>
                   </a>
                 </div>
               </div>

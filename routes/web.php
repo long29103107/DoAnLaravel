@@ -15,94 +15,102 @@ use App\Ban;
 use App\User;
 
 Route::get('/', 'IndexController@index')->name('Index.index');
-Route::get('useradmin', 'UserAdminController@index')->name('UserAdmin.index');
-Route::get('dashboard', 'DashboardController@index')->name('Dashboard.index');
+Route::get('useradmin', 'UserAdminController@index')->name('UserAdmin.index')->middleware('checklogin');
+Route::get('dashboard', 'DashboardController@index')->name('Dashboard.index')->middleware('checklogin');
 
-//Table user
-Route::get('tableuser', 'TableUserController@index')->name('TableUser.index');
-Route::get('tableuser/create', 'TableUserController@create')->name('TableUser.create');
-Route::post('tableuser', 'TableUserController@store')->name('TableUser.store');
-Route::get('tableuser/{id}/edit', 'TableUserController@edit')->name('TableUser.edit');
-Route::put('tableuser/{id}', 'TableUserController@update')->name('TableUser.update');
-Route::get('tableuser/{id}/active', 'TableUserController@showactive')->name('TableUser.showactive');
-Route::put('tableuser/{id}/active', 'TableUserController@active')->name('TableUser.active');
-Route::get('tableuser/{id}', 'TableUserController@show')->name('TableUser.show');
-Route::delete('tableuser/{id}', 'TableUserController@destroy')->name('TableUser.destroy');
+
+//Đăng nhập
 Route::get('login', 'TableUserController@getLogin')->name('Login.get');
 Route::post('login', 'TableUserController@postLogin')->name('Login.post');
 
+//Đăng xuất
+Route::get('logout', 'TableUserController@logout')->name('Logout');
+
+
+
+//Table user
+Route::get('tableuser', 'TableUserController@index')->name('TableUser.index')->middleware('checklogin');
+Route::get('tableuser/create', 'TableUserController@create')->name('TableUser.create')->middleware('checklogin');
+Route::post('tableuser', 'TableUserController@store')->name('TableUser.store')->middleware('checklogin');
+Route::get('tableuser/{id}/edit', 'TableUserController@edit')->name('TableUser.edit')->middleware('checklogin');
+Route::put('tableuser/{id}', 'TableUserController@update')->name('TableUser.update')->middleware('checklogin');
+Route::get('tableuser/{id}/active', 'TableUserController@showactive')->name('TableUser.showactive')->middleware('checklogin');
+Route::put('tableuser/{id}/active', 'TableUserController@active')->name('TableUser.active')->middleware('checklogin');
+Route::get('tableuser/{id}', 'TableUserController@show')->name('TableUser.show')->middleware('checklogin');
+Route::delete('tableuser/{id}', 'TableUserController@destroy')->name('TableUser.destroy')->middleware('checklogin');
+
 //Table bàn
-Route::get('tableban', 'TableBanController@index')->name('TableBan.index');
-Route::get('tableban/create', 'TableBanController@create')->name('TableBan.create');
-Route::post('tableban', 'TableBanController@store')->name('TableBan.store');
-Route::get('tableban/{id}/edit', 'TableBanController@edit')->name('TableBan.edit');
-Route::put('tableban/{id}', 'TableBanController@update')->name('TableBan.update');
-Route::get('tableban/{id}', 'TableBanController@show')->name('TableBan.show');
-Route::delete('tableban/{id}', 'TableBanController@destroy')->name('TableBan.destroy');
+Route::get('tableban', 'TableBanController@index')->name('TableBan.index')->middleware('checklogin');
+Route::get('tableban/create', 'TableBanController@create')->name('TableBan.create')->middleware('checklogin');
+Route::post('tableban', 'TableBanController@store')->name('TableBan.store')->middleware('checklogin');
+Route::get('tableban/{id}/edit', 'TableBanController@edit')->name('TableBan.edit')->middleware('checklogin');
+Route::put('tableban/{id}', 'TableBanController@update')->name('TableBan.update')->middleware('checklogin');
+Route::get('tableban/{id}', 'TableBanController@show')->name('TableBan.show')->middleware('checklogin');
+Route::delete('tableban/{id}', 'TableBanController@destroy')->name('TableBan.destroy')->middleware('checklogin');
 
 //Table chi tiết hoá đơn
-Route::get('tablechitiethoadon', 'TableChiTietHoaDonController@index')->name('TableChiTietHoaDon.index');
+Route::get('tablechitiethoadon', 'TableChiTietHoaDonController@index')->name('TableChiTietHoaDon.index')->middleware('checklogin');
 
 //Table chi tiết hoá đơn nhập
-Route::get('tablechitiethoadonnhap', 'TableChiTietHoaDonNhapController@index')->name('TableChiTietHoaDonNhap.index');
+Route::get('tablechitiethoadonnhap', 'TableChiTietHoaDonNhapController@index')->name('TableChiTietHoaDonNhap.index')->middleware('checklogin');
 
 //Table hoá đơn
-Route::get('tablehoadon', 'TableHoaDonController@index')->name('TableHoaDon.index');
+Route::get('tablehoadon', 'TableHoaDonController@index')->name('TableHoaDon.index')->middleware('checklogin');
 
 //Table hoá đơn nhập
-Route::get('tablehoadonnhap', 'TableHoaDonNhapController@index')->name('TableHoaDonNhap.index');
-Route::get('tablehoadonnhap/create', 'TableHoaDonNhapController@create')->name('TableHoaDonNhap.create');
-Route::post('tablehoadonnhap', 'TableHoaDonNhapController@store')->name('TableHoaDonNhap.store');
-Route::get('tablehoadonnhap/{id}/edit', 'TableHoaDonNhapController@edit')->name('TableHoaDonNhap.edit');
-Route::put('tablehoadonnhap/{id}', 'TableHoaDonNhapController@update')->name('TableHoaDonNhap.update');
-Route::get('tablehoadonnhap/{id}', 'TableHoaDonNhapController@show')->name('TableHoaDonNhap.show');
-Route::delete('tablehoadonnhap/{id}', 'TableHoaDonNhapController@destroy')->name('TableHoaDonNhap.destroy');
+Route::get('tablehoadonnhap', 'TableHoaDonNhapController@index')->name('TableHoaDonNhap.index')->middleware('checklogin');
+Route::get('tablehoadonnhap/create', 'TableHoaDonNhapController@create')->name('TableHoaDonNhap.create')->middleware('checklogin');
+Route::post('tablehoadonnhap', 'TableHoaDonNhapController@store')->name('TableHoaDonNhap.store')->middleware('checklogin');
+Route::get('tablehoadonnhap/{id}/edit', 'TableHoaDonNhapController@edit')->name('TableHoaDonNhap.edit')->middleware('checklogin');
+Route::put('tablehoadonnhap/{id}', 'TableHoaDonNhapController@update')->name('TableHoaDonNhap.update')->middleware('checklogin');
+Route::get('tablehoadonnhap/{id}', 'TableHoaDonNhapController@show')->name('TableHoaDonNhap.show')->middleware('checklogin');
+Route::delete('tablehoadonnhap/{id}', 'TableHoaDonNhapController@destroy')->name('TableHoaDonNhap.destroy')->middleware('checklogin');
 
 //Table loại bàn
-Route::get('tableloaiban', 'TableLoaiBanController@index')->name('TableLoaiBan.index');
-Route::get('tableloaiban/create', 'TableLoaiBanController@create')->name('TableLoaiBan.create');
-Route::post('tableloaiban', 'TableLoaiBanController@store')->name('TableLoaiBan.store');
-Route::get('tableloaiban/{id}/edit', 'TableLoaiBanController@edit')->name('TableLoaiBan.edit');
-Route::put('tableloaiban/{id}', 'TableLoaiBanController@update')->name('TableLoaiBan.update');
-Route::get('tableloaiban/{id}', 'TableLoaiBanController@show')->name('TableLoaiBan.show');
-Route::delete('tableloaiban/{id}', 'TableLoaiBanController@destroy')->name('TableLoaiBan.destroy');
+Route::get('tableloaiban', 'TableLoaiBanController@index')->name('TableLoaiBan.index')->middleware('checklogin');
+Route::get('tableloaiban/create', 'TableLoaiBanController@create')->name('TableLoaiBan.create')->middleware('checklogin');
+Route::post('tableloaiban', 'TableLoaiBanController@store')->name('TableLoaiBan.store')->middleware('checklogin');
+Route::get('tableloaiban/{id}/edit', 'TableLoaiBanController@edit')->name('TableLoaiBan.edit')->middleware('checklogin');
+Route::put('tableloaiban/{id}', 'TableLoaiBanController@update')->name('TableLoaiBan.update')->middleware('checklogin');
+Route::get('tableloaiban/{id}', 'TableLoaiBanController@show')->name('TableLoaiBan.show')->middleware('checklogin');
+Route::delete('tableloaiban/{id}', 'TableLoaiBanController@destroy')->name('TableLoaiBan.destroy')->middleware('checklogin');
 
 //Table loại món ăn
-Route::get('tableloaimonan', 'TableLoaiMonAnController@index')->name('TableLoaiMonAn.index');
-Route::get('tableloaimonan/create', 'TableLoaiMonAnController@create')->name('TableLoaiMonAn.create');
-Route::post('tableloaimonan', 'TableLoaiMonAnController@store')->name('TableLoaiMonAn.store');
-Route::get('tableloaimonan/{id}/edit', 'TableLoaiMonAnController@edit')->name('TableLoaiMonAn.edit');
-Route::put('tableloaimonan/{id}', 'TableLoaiMonAnController@update')->name('TableLoaiMonAn.update');
-Route::get('tableloaimonan/{id}', 'TableLoaiMonAnController@show')->name('TableLoaiMonAn.show');
-Route::delete('tableloaimonan/{id}', 'TableLoaiMonAnController@destroy')->name('TableLoaiMonAn.destroy');
+Route::get('tableloaimonan', 'TableLoaiMonAnController@index')->name('TableLoaiMonAn.index')->middleware('checklogin');
+Route::get('tableloaimonan/create', 'TableLoaiMonAnController@create')->name('TableLoaiMonAn.create')->middleware('checklogin');
+Route::post('tableloaimonan', 'TableLoaiMonAnController@store')->name('TableLoaiMonAn.store')->middleware('checklogin');
+Route::get('tableloaimonan/{id}/edit', 'TableLoaiMonAnController@edit')->name('TableLoaiMonAn.edit')->middleware('checklogin');
+Route::put('tableloaimonan/{id}', 'TableLoaiMonAnController@update')->name('TableLoaiMonAn.update')->middleware('checklogin');
+Route::get('tableloaimonan/{id}', 'TableLoaiMonAnController@show')->name('TableLoaiMonAn.show')->middleware('checklogin');
+Route::delete('tableloaimonan/{id}', 'TableLoaiMonAnController@destroy')->name('TableLoaiMonAn.destroy')->middleware('checklogin');
 
 //Table món ăn
-Route::get('tablemonan', 'TableMonAnController@index')->name('TableMonAn.index');
-Route::get('tablemonan/create', 'TableMonAnController@create')->name('TableMonAn.create');
-Route::post('tablemonan', 'TableMonAnController@store')->name('TableMonAn.store');
-Route::get('tablemonan/{id}/edit', 'TableMonAnController@edit')->name('TableMonAn.edit');
-Route::put('tablemonan/{id}', 'TableMonAnController@update')->name('TableMonAn.update');
-Route::get('tablemonan/{id}', 'TableMonAnController@show')->name('TableMonAn.show');
-Route::delete('tablemonan/{id}', 'TableMonAnController@destroy')->name('TableMonAn.destroy');
+Route::get('tablemonan', 'TableMonAnController@index')->name('TableMonAn.index')->middleware('checklogin');
+Route::get('tablemonan/create', 'TableMonAnController@create')->name('TableMonAn.create')->middleware('checklogin');
+Route::post('tablemonan', 'TableMonAnController@store')->name('TableMonAn.store')->middleware('checklogin');
+Route::get('tablemonan/{id}/edit', 'TableMonAnController@edit')->name('TableMonAn.edit')->middleware('checklogin');
+Route::put('tablemonan/{id}', 'TableMonAnController@update')->name('TableMonAn.update')->middleware('checklogin');
+Route::get('tablemonan/{id}', 'TableMonAnController@show')->name('TableMonAn.show')->middleware('checklogin');
+Route::delete('tablemonan/{id}', 'TableMonAnController@destroy')->name('TableMonAn.destroy')->middleware('checklogin');
 
 //Table nguyên liệu
-Route::get('tablenguyenlieu', 'TableNguyenLieuController@index')->name('TableNguyenLieu.index');
-Route::get('tablenguyenlieu/create', 'TableNguyenLieuController@create')->name('TableNguyenLieu.create');
-Route::post('tablenguyenlieu', 'TableNguyenLieuController@store')->name('TableNguyenLieu.store');
-Route::get('tablenguyenlieu/{id}/edit', 'TableNguyenLieuController@edit')->name('TableNguyenLieu.edit');
-Route::put('tablenguyenlieu/{id}', 'TableNguyenLieuController@update')->name('TableNguyenLieu.update');
-Route::get('tablenguyenlieu/{id}', 'TableNguyenLieuController@show')->name('TableNguyenLieu.show');
-Route::delete('tablenguyenlieu/{id}', 'TableNguyenLieuController@destroy')->name('TableNguyenLieu.destroy');
+Route::get('tablenguyenlieu', 'TableNguyenLieuController@index')->name('TableNguyenLieu.index')->middleware('checklogin');
+Route::get('tablenguyenlieu/create', 'TableNguyenLieuController@create')->name('TableNguyenLieu.create')->middleware('checklogin');
+Route::post('tablenguyenlieu', 'TableNguyenLieuController@store')->name('TableNguyenLieu.store')->middleware('checklogin');
+Route::get('tablenguyenlieu/{id}/edit', 'TableNguyenLieuController@edit')->name('TableNguyenLieu.edit')->middleware('checklogin');
+Route::put('tablenguyenlieu/{id}', 'TableNguyenLieuController@update')->name('TableNguyenLieu.update')->middleware('checklogin');
+Route::get('tablenguyenlieu/{id}', 'TableNguyenLieuController@show')->name('TableNguyenLieu.show')->middleware('checklogin');
+Route::delete('tablenguyenlieu/{id}', 'TableNguyenLieuController@destroy')->name('TableNguyenLieu.destroy')->middleware('checklogin');
 
 
 //Table nhà cung cấp
-Route::get('tablenhacungcap', 'TableNhaCungCapController@index')->name('TableNhaCungCap.index');
-Route::get('tablenhacungcap/create', 'TableNhaCungCapController@create')->name('TableNhaCungCap.create');
-Route::post('tablenhacungcap', 'TableNhaCungCapController@store')->name('TableNhaCungCap.store');
-Route::get('tablenhacungcap/{id}/edit', 'TableNhaCungCapController@edit')->name('TableNhaCungCap.edit');
-Route::put('tablenhacungcap/{id}', 'TableNhaCungCapController@update')->name('TableNhaCungCap.update');
-Route::get('tablenhacungcap/{id}', 'TableNhaCungCapController@show')->name('TableNhaCungCap.show');
-Route::delete('tablenhacungcap/{id}', 'TableNhaCungCapController@destroy')->name('TableNhaCungCap.destroy');
+Route::get('tablenhacungcap', 'TableNhaCungCapController@index')->name('TableNhaCungCap.index')->middleware('checklogin');
+Route::get('tablenhacungcap/create', 'TableNhaCungCapController@create')->name('TableNhaCungCap.create')->middleware('checklogin');
+Route::post('tablenhacungcap', 'TableNhaCungCapController@store')->name('TableNhaCungCap.store')->middleware('checklogin');
+Route::get('tablenhacungcap/{id}/edit', 'TableNhaCungCapController@edit')->name('TableNhaCungCap.edit')->middleware('checklogin');
+Route::put('tablenhacungcap/{id}', 'TableNhaCungCapController@update')->name('TableNhaCungCap.update')->middleware('checklogin');
+Route::get('tablenhacungcap/{id}', 'TableNhaCungCapController@show')->name('TableNhaCungCap.show')->middleware('checklogin');
+Route::delete('tablenhacungcap/{id}', 'TableNhaCungCapController@destroy')->name('TableNhaCungCap.destroy')->middleware('checklogin');
 
 
 
