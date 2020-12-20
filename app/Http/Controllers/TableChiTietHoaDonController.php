@@ -29,7 +29,10 @@ class TableChiTietHoaDonController extends Controller
      */
     public function create()
     {
-        //
+        $cthoadon = new ChiTietHoaDon;
+        $dscthoadon = $cthoadon -> DSChiTietHoaDon();
+        $data = ['dscthoadon'=>$dscthoadon];
+        return view("chitiethoadon.create",$data);
     }
 
     /**
@@ -40,7 +43,13 @@ class TableChiTietHoaDonController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $chitiethoadon = new chitiethoadon();
+        $chitiethoadon->id_hoa_don = $request->Id_Hoa_Don;
+        $chitiethoadon->id_mon_an = $request->Id_Mon_An;
+        $chitiethoadon->don_gia = $request->Don_Gia;
+        $chitiethoadon->so_luong = $request->So_Luong;
+        $chitiethoadon->save();
+        return redirect()->route('TableChiTietHoaDon.index');
     }
 
     /**

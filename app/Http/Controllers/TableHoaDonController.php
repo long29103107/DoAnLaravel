@@ -41,7 +41,10 @@ class TableHoaDonController extends Controller
      */
     public function store(Request $request)
     {
-        $Hoadon = new hoadon();
+        $HoaDon = new HoaDon();
+        $HoaDon->tong_tien = $request->TongTienHoaDon;
+        $HoaDon->save();
+        return redirect()->route('TableHoaDon.index');
     }
 
     /**
@@ -52,7 +55,8 @@ class TableHoaDonController extends Controller
      */
     public function show($id)
     {
-        //
+        $HoaDon = new hoadon();
+
     }
 
     /**

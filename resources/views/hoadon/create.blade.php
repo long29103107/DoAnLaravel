@@ -19,15 +19,12 @@
                 </div>
             </div>
 
-        <form action="{{route('TableLoaiBan.store')}}" method="post" enctype="multipart/form-data">
+        <form action="{{route('TableHoaDon.store')}}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
-                <label for="tenloaimonan">Tên loại</label>
-                <input type="text" class="form-control" id="tenloaimonan" name="tenloaiban">
+                <label for="TongTien">Tổng tiền</label>
+                <input type="text" class="form-control" id="TongTien" name="TongTienHoaDon">
             </div>
-            <div class="form-group">
-                <label for="tenloaimonan">Số lượng ghế</label>
-                <input type="text" class="form-control" id="tenloaimonan" name="soluongghe">
             </div>
             <div class="form-group">
                 <input type="submit" class="btn btn-success" id="usr">

@@ -42,6 +42,8 @@ Route::delete('tableban/{id}', 'TableBanController@destroy')->name('TableBan.des
 
 //Table chi tiết hoá đơn
 Route::get('tablechitiethoadon', 'TableChiTietHoaDonController@index')->name('TableChiTietHoaDon.index');
+Route::get('tablechitiethoadon/create', 'TableChiTietHoaDonController@create')->name('TableChiTietHoaDon.create');
+Route::post('tablechitiethoadon', 'TableChiTietHoaDonController@store')->name('TableChiTietHoaDon.store');
 
 //Table chi tiết hoá đơn nhập
 Route::get('tablechitiethoadonnhap', 'TableChiTietHoaDonNhapController@index')->name('TableChiTietHoaDonNhap.index');
@@ -49,6 +51,7 @@ Route::get('tablechitiethoadonnhap', 'TableChiTietHoaDonNhapController@index')->
 //Table hoá đơn
 Route::get('tablehoadon', 'TableHoaDonController@index')->name('TableHoaDon.index');
 Route::get('tablehoadon/create', 'TableHoaDonController@create')->name('TableHoaDon.create');
+Route::post('tablehoadon', 'TableHoaDonController@store')->name('TableHoaDon.store');
 
 //Table hoá đơn nhập
 Route::get('tablehoadonnhap', 'TableHoaDonNhapController@index')->name('TableHoaDonNhap.index');
