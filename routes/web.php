@@ -102,6 +102,9 @@ Route::get('tablenhacungcap/{id}', 'TableNhaCungCapController@show')->name('Tabl
 Route::delete('tablenhacungcap/{id}', 'TableNhaCungCapController@destroy')->name('TableNhaCungCap.destroy');
 
 
+//table đăng ký
+Route::get('tabledangky/create','TableDangKyController@create')->name('TableDangKy.create');
+Route::post('tabledangky','TableDangKyController@store')->name('TableDangKy.store');
 
 // Auth::routes();
 

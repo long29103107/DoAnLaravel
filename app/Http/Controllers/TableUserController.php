@@ -66,7 +66,6 @@ class TableUserController extends Controller
     public function store(Request $request)
     {
         $user = new User;
-        $user1 = new User;
         $user->tai_khoan = $request->taikhoan;
         $user->password = bcrypt($request->password);
         $user->ho_ten = $request->hoten;
