@@ -112,7 +112,9 @@ Route::put('tablenhacungcap/{id}', 'TableNhaCungCapController@update')->name('Ta
 Route::get('tablenhacungcap/{id}', 'TableNhaCungCapController@show')->name('TableNhaCungCap.show')->middleware('checklogin');
 Route::delete('tablenhacungcap/{id}', 'TableNhaCungCapController@destroy')->name('TableNhaCungCap.destroy')->middleware('checklogin');
 
-
+//table đăng ký
+Route::get('tabledangky/create','TableDangKyController@create')->name('TableDangKy.create');
+Route::post('tabledangky','TableDangKyController@store')->name('TableDangKy.store');
 
 // Auth::routes();
 
