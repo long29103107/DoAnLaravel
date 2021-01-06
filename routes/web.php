@@ -50,12 +50,17 @@ Route::delete('tableban/{id}', 'TableBanController@destroy')->name('TableBan.des
 
 //Table chi tiết hoá đơn
 Route::get('tablechitiethoadon', 'TableChiTietHoaDonController@index')->name('TableChiTietHoaDon.index')->middleware('checklogin');
+Route::get('tablechitiethoadon/create', 'TableChiTietHoaDonController@create')->name('TableChiTietHoaDon.create')->middleware('checklogin');
+Route::post('tablechitiethoadon', 'TableChiTietHoaDonController@store')->name('TableChiTietHoaDon.store')->middleware('checklogin');
 
 //Table chi tiết hoá đơn nhập
 Route::get('tablechitiethoadonnhap', 'TableChiTietHoaDonNhapController@index')->name('TableChiTietHoaDonNhap.index')->middleware('checklogin');
 
 //Table hoá đơn
 Route::get('tablehoadon', 'TableHoaDonController@index')->name('TableHoaDon.index')->middleware('checklogin');
+Route::get('tablehoadon/create', 'TableHoaDonController@create')->name('TableHoaDon.create') ->middleware('checklogin');
+Route::post('tablehoadon', 'TableHoaDonController@store')->name('TableHoaDon.store') ->middleware('checklogin');
+
 
 //Table hoá đơn nhập
 Route::get('tablehoadonnhap', 'TableHoaDonNhapController@index')->name('TableHoaDonNhap.index')->middleware('checklogin');

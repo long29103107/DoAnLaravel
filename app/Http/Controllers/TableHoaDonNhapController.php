@@ -30,7 +30,9 @@ class TableHoaDonNhapController extends Controller
      */
     public function create()
     {
-        //
+        $DSNhaCungCap = NhaCungCap::all();
+        $data=['data'=>$DSNhaCungCap];
+        return view("hoadonnhap.create",$data);
     }
 
     /**
@@ -41,7 +43,10 @@ class TableHoaDonNhapController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $HoaDonNhap = new HoaDonNhap;
+        $HoaDonNhap->id_nha_cung_cap = $request->Id_Nha_Cung_Cap;
+        $HoaDonNhap->save();
+        return redirect()->route('TableHoaDonNhap.index');
     }
 
     /**
