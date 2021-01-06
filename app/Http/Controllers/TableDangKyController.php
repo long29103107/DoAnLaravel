@@ -3,12 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Hoadon;
+use App\User;
+use DB;
+use Auth;
 
-class TableHoaDonController extends Controller
+class TableDangKyController extends Controller
 {
-    //
-    //
     /**
      * Display a listing of the resource.
      *
@@ -17,10 +17,6 @@ class TableHoaDonController extends Controller
     public function index()
     {
         //
-        $hoadon = new HoaDon;
-        $dshoadon = $hoadon -> DSHoaDon();
-        $data = ['dshoadon'=>$dshoadon];
-        return view("hoadon.index",$data);
     }
 
     /**
@@ -30,7 +26,7 @@ class TableHoaDonController extends Controller
      */
     public function create()
     {
-        return view("hoadon.create");
+        return view('dangky.create');
     }
 
     /**
@@ -41,10 +37,20 @@ class TableHoaDonController extends Controller
      */
     public function store(Request $request)
     {
-        $HoaDon = new HoaDon();
-        $HoaDon->tong_tien = $request->TongTienHoaDon;
-        $HoaDon->save();
-        return redirect()->route('TableHoaDon.index');
+        if ($request->TaiKhoan) {
+            # code...
+        }
+        $ThanhVien = new User();
+        $ThanhVien->tai_khoan = $request->TaiKhoan;
+        //$ThanhVien->password = Hash::make($request->MatKhau);
+        $ThanhVien->password = bcrypt($request->MatKhau);
+        $ThanhVien->ho_ten = $request->HoTen;
+        $ThanhVien->sdt=$request->SDT;
+        $ThanhVien->dia_chi=$request->DiaChi;
+        $ThanhVien->phan_quyen = 0;
+        $ThanhVien->khoa = 0;
+        $ThanhVien->save();
+        return redirect()->route('Index.index');
     }
 
     /**
@@ -55,8 +61,7 @@ class TableHoaDonController extends Controller
      */
     public function show($id)
     {
-        $HoaDon = new hoadon();
-
+        //
     }
 
     /**
