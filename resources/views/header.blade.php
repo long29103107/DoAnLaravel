@@ -54,7 +54,7 @@
                                             @if(!isset($title))
                                             <li><a href="{{route('Login.get')}}">Đăng Nhập</a></li>
                                             @endif
-                                        <li><a href="#">Đăng Ký</a></li>
+                                        <li><a href="{{route('TableDangKy.create')}}">Đăng Ký</a></li>
                                         @else
                                         <li class="nav-item btn-rotate dropdown">
                                             <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
