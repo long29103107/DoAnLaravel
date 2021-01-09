@@ -17,7 +17,7 @@ use App\User;
 Route::get('/', 'IndexController@index')->name('Index.index');
 Route::get('useradmin', 'UserAdminController@index')->name('UserAdmin.index')->middleware('checklogin');
 Route::get('dashboard', 'DashboardController@index')->name('Dashboard.index')->middleware('checklogin');
-
+Route::get('tableuser/search','TableUserController@search')->name('search')->middleware('checklogin');
 
 //Đăng nhập
 Route::get('login', 'TableUserController@getLogin')->name('Login.get');
