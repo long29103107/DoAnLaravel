@@ -145,7 +145,7 @@ class TableUserController extends Controller
     {
         //
         $search = $request->search;
-        $user = User::where('tai_khoan', 'like','%'.$search.'%')->get();
+        $user = User::where('tai_khoan', 'like','%'.$search.'%')->paginate(10);
         $dsuser = $user;
         $data = ['dsuser'=>$dsuser];
         return view("user.index",$data);
