@@ -2,17 +2,14 @@
     <div class="row">
     <div class="col-md-12">
             <div class="card card-plain">
-                <!-- <div class="card-header">
-                    <h4 style="display:inline;" class="card-title">User</h4>
-                </div> -->
                 <div class="card-header">
                     <button style="float:left;" class="btn btn-primary"><a href="{{route('TableUser.create')}}">Create</a></button>
-                    <form class="form">
+                    <form class="form" action="{{route('search')}}" method="get">
                         <div class="input-group no-border">
-                            <input type="text" value="" class="form-control" placeholder="Search...">
+                            <input type="search" class="form-control" name="search" placeholder="Searching ... ">
                             <div class="input-group-append">
                             <div class="input-group-text">
-                                <i class="nc-icon nc-zoom-split"></i>
+                                <button type="submit" class="btn btn-primary">Search</button>
                             </div>
                             </div>
                         </div>
@@ -68,6 +65,7 @@
                         @endforeach
                         </tbody>
                     </table>
+                      {!! $dsuser->links()!!}
                     </div>
                 </div>
             </div>
