@@ -18,7 +18,11 @@
                     <h4 style="display:inline;" class="card-title">Thêm User</h4>
                 </div>
             </div>
-
+        <ul class="alert text-danger">
+            @foreach($errors -> all() as $error)
+                <li>{{$error}}</li>
+            @endforeach
+        </ul>
         <form action="{{route('TableUser.store')}}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
@@ -26,9 +30,8 @@
                 <input type="text" class="form-control" id="taikhoan" name="taikhoan">
 
             </div>
-
             <div class="form-group">
-                <label for="usr">Password</label>
+                <label for="usr">Mật khẩu</label>
                 <input type="password" class="form-control" id="" name="password">
             </div>
             <div class="form-group">
@@ -54,6 +57,7 @@
                 <input type="submit" class="btn btn-success" id="usr">
             </div>
         </form>
+
         </div>
     </div>
 </div>

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use DB;
 use Auth;
+use Validator;
 class TableUserController extends Controller
 {
     public function getLogin()
@@ -29,10 +30,10 @@ class TableUserController extends Controller
                 $remember = false;
             }
             //kiểm tra trường remember có được chọn hay không
-        
+
             if (Auth::guard('user')->attempt($arr))
             {
-                if($data->phan_quyen == 1) 
+                if($data->phan_quyen == 1)
                 {
                 return redirect()->route('Dashboard.index');
                 }else
@@ -42,8 +43,8 @@ class TableUserController extends Controller
             }
         }
             return redirect()->route('Login.get')->with('status', 'Tài khoản hoặc mật khẩu không chính xác');
-            
-        
+
+
     }
     public function logout(){
         Auth::guard('user')->logout();
@@ -59,6 +60,7 @@ class TableUserController extends Controller
         //
         $user = new User;
         $dsuser = $user -> DSUser();
+        $dsuser = User::paginate(3);
         $data = ['dsuser'=>$dsuser];
         return view("user.index",$data);
     }
@@ -82,17 +84,47 @@ class TableUserController extends Controller
      */
     public function store(Request $request)
     {
-        $user = new User;
-        $user1 = new User;
-        $user->tai_khoan = $request->taikhoan;
-        $user->password = bcrypt($request->password);
-        $user->ho_ten = $request->hoten;
-        $user->sdt = $request->sodienthoai;
-        $user->dia_chi = $request->diachi;
-        $user->phan_quyen = $request->phanquyen;
-        $user->khoa= false;
-        $user->save();
-        return redirect()->route('TableUser.index');
+        $rule = ['taikhoan'=>'required|min:6|max:30',
+         'password'=>'required|min:8|max:30',
+         'hoten'=>'required|min:6|max:30',
+         'sodienthoai'=>'required|regex:/(0)[0-9]{9}/',
+         'diachi' => 'required|max:255'];
+
+        $messenger=[
+            'required' => ':attribute Không được để trống',
+            'min' => ':attribute Không được nhỏ hơn :min',
+            'max' => ':attribute Không được lớn hơn :max',
+            'integer' => ':attribute Chỉ được nhập số',
+            'numeric' => ':attribute Chỉ được nhập  số',
+            'regex'=>':attribute Không hợp lệ'
+         ];
+
+        $customName=[
+            'taikhoan' => 'Tài khoản',
+            'password' => 'Mật khẩu',
+            'hoten' => 'Họ tên',
+            'sodienthoai'=>'Số điện thoại',
+            'diachi'=>'Địa chỉ',
+        ];
+        $validator = Validator::make($request->all(), $rule,$messenger,$customName);
+        if($validator->fails()){
+            return redirect()->route('TableUser.create')
+            ->withErrors($validator)
+            ->withInput();
+        }
+        else{
+            $user = new User;
+            $user1 = new User;
+            $user->tai_khoan = $request->taikhoan;
+            $user->password = bcrypt($request->password);
+            $user->ho_ten = $request->hoten;
+            $user->sdt = $request->sodienthoai;
+            $user->dia_chi = $request->diachi;
+            $user->phan_quyen = $request->phanquyen;
+            $user->khoa= false;
+            $user->save();
+            return redirect()->route('TableUser.index');
+        }
     }
 
     /**
@@ -107,6 +139,16 @@ class TableUserController extends Controller
         $user = new User;
         $user = $user->FindUser($id);
         return view("user.delete",$user);
+    }
+
+    public function search(Request $request)
+    {
+        //
+        $search = $request->search;
+        $user = User::where('tai_khoan', 'like','%'.$search.'%')->get();
+        $dsuser = $user;
+        $data = ['dsuser'=>$dsuser];
+        return view("user.index",$data);
     }
 
     /**
@@ -132,7 +174,35 @@ class TableUserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $rule = ['taikhoan'=>'required|min:6|max:30',
+         'password'=>'required|min:8|max:30',
+         'hoten'=>'required|min:6|max:30',
+         'sodienthoai'=>'required|regex:/(0)[0-9]{9}/',
+         'diachi' => 'required|max:255'];
+
+        $messenger=[
+            'required' => ':attribute Không được để trống',
+            'min' => ':attribute Không được nhỏ hơn :min',
+            'max' => ':attribute Không được lớn hơn :max',
+            'integer' => ':attribute Chỉ được nhập số',
+            'numeric' => ':attribute Chỉ được nhập  số',
+            'regex'=>':attribute Không hợp lệ'
+         ];
+
+        $customName=[
+            'taikhoan' => 'Tài khoản',
+            'password' => 'Mật khẩu',
+            'hoten' => 'Họ tên',
+            'sodienthoai'=>'Số điện thoại',
+            'diachi'=>'Địa chỉ',
+        ];
+       $validator = Validator::make($request->all(), $rule,$messenger,$customName);
+       if($validator->fails()){
+           return redirect()->route('TableUser.create')
+           ->withErrors($validator)
+           ->withInput();
+       }
+       else{
         $user = new User;
         $data = $user ->FindUser($id);
         $data->tai_khoan = $request->taikhoan;
@@ -144,6 +214,7 @@ class TableUserController extends Controller
         $data->khoa= false;
         $data->save();
         return redirect()->route('TableUser.index');
+       }
     }
 
     public function showactive($id)

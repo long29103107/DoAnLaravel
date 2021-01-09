@@ -16,7 +16,8 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::get('monan','Api\MonAnAPIController@MonAn');
-Route::get('hinhanh','Api\MonAnAPIController@HinhAnh');
-Route::get('ban','Api\BanAPIController@Ban');
-Route::get('loaimonan','Api\LoaiMonAnAPIController@LoaiMonAn');
+Route::get('Monan','Api\MonAnAPIController@MonAn');
+Route::get('Monan/{id}','Api\MonAnAPIController@TimMonAn');
+Route::get('LoaiMonan','Api\MonAnAPIController@LoaiMonAn');
+Route::get('HinhAnh','Api\MonAnAPIController@HinhAnh');
+Route::get('Ban','Api\BanAPIController@Ban');
