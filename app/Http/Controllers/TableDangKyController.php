@@ -3,12 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\HoaDonNhap;
+use App\User;
+use DB;
+use Auth;
 
-class TableHoaDonNhapController extends Controller
+
+class TableDangKyController extends Controller
 {
-    //
-    //
     /**
      * Display a listing of the resource.
      *
@@ -16,11 +17,7 @@ class TableHoaDonNhapController extends Controller
      */
     public function index()
     {
-        //
-        $hoadonnhap = new HoaDonNhap;
-        $dshoadonnhap = $hoadonnhap -> DSHoaDonNhap();
-        $data = ['dshoadonnhap'=>$dshoadonnhap];
-        return view("hoadonnhap.index",$data);
+        
     }
 
     /**
@@ -30,9 +27,7 @@ class TableHoaDonNhapController extends Controller
      */
     public function create()
     {
-        $DSNhaCungCap = NhaCungCap::all();
-        $data=['data'=>$DSNhaCungCap];
-        return view("hoadonnhap.create",$data);
+        return view('dangky.create');
     }
 
     /**
@@ -43,10 +38,17 @@ class TableHoaDonNhapController extends Controller
      */
     public function store(Request $request)
     {
-        $HoaDonNhap = new HoaDonNhap;
-        $HoaDonNhap->id_nha_cung_cap = $request->Id_Nha_Cung_Cap;
-        $HoaDonNhap->save();
-        return redirect()->route('TableHoaDonNhap.index');
+        $ThanhVien = new User();
+        $ThanhVien->tai_khoan = $request->TaiKhoan;
+        //$ThanhVien->password = Hash::make($request->MatKhau);
+        $ThanhVien->password = bcrypt($request->MatKhau);
+        $ThanhVien->ho_ten = $request->HoTen;
+        $ThanhVien->sdt=$request->SDT;
+        $ThanhVien->dia_chi=$request->DiaChi;
+        $ThanhVien->phan_quyen = 0;
+        $ThanhVien->khoa = 0;
+        $ThanhVien->save();
+        return redirect()->route('Login.get');
     }
 
     /**
