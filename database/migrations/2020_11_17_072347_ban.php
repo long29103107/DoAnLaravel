@@ -16,7 +16,6 @@ class Ban extends Migration
         Schema::create('bans', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('so');
-            $table->unsignedBigInteger('id_loai_ban');
             $table->timestamps();
             $table->softDeletes();
             $table->engine='InnoDB';
