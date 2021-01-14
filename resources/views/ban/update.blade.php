@@ -27,19 +27,6 @@
                 <input type="text" class="form-control" id="" value="{{$ban->so}}" name="soban">
             </div>
             <div class="form-group">
-                <label for="usr">Loại bàn</label>
-                <select class="form-control" id="sel1" name="idloaiban">
-                    @foreach($dsloaiban as $dslb)
-                        @if($loaiban->id == $dslb->id )
-                            <option value="{{$dslb->id}}" selected >{{$dslb->ten_loai}}</option>
-                        @endif
-                        @if($loaiban->id != $dslb->id )
-                            <option value="{{$dslb->id}}" >{{$dslb->ten_loai}}</option>
-                        @endif
-                    @endforeach
-                </select>
-            </div>
-            <div class="form-group">
                 <input type="submit" class="btn btn-success" id="">
             </div>
         </form>

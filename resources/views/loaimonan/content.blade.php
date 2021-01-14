@@ -40,6 +40,7 @@
                         @endforeach
                         </tbody>
                     </table>
+                    {!! $dsloaimonan->links()!!}
                     </div>
                 </div>
             </div>

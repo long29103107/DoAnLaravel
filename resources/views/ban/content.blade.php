@@ -14,9 +14,6 @@
                         <th>
                             Số bàn
                         </th>
-                        <th>
-                            Loại bàn
-                        </th>
                         </thead>
                         <tbody>
                             @foreach($dsban as $b)
@@ -28,13 +25,11 @@
                             <td class="text-left">
                             {{$b['so']}}
                             </td>
-                            <td class="text-left">
-                                {{$b->FindLoaiBan($b['id_loai_ban'])->ten_loai}}
-                            </td>
                         </tr>
                         @endforeach
                         </tbody>
                     </table>
+                    {!! $dsban->links()!!}
                     </div>
                 </div>
             </div>

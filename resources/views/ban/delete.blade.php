@@ -27,17 +27,11 @@
                             Số bàn
                         </th>
                         <th>
-                            Loại bàn
-                        </th>
-                        <th>
                         </thead>
                         <tbody>
                         <tr>
                             <td class="text-left">
                                 {{$databan->so}}
-                            </td>
-                            <td class="text-left">
-                                {{$dataloaiban->ten_loai}}
                             </td>
                         </tr>
                         </tbody>

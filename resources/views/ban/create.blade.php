@@ -23,15 +23,7 @@
             @csrf
             <div class="form-group">
                 <label for="tenloaimonan">Số bàn</label>
-                <input type="text" class="form-control" id="tenloaimonan" name="soban">
-            </div>
-            <div class="form-group">
-                <label for="sel1">Loại bàn</label>
-                <select class="form-control" id="sel1" name="idloaiban">
-                     @foreach($dsloaiban as $dslb)
-                    <option value="{{$dslb->id}}">{{$dslb->ten_loai}}</option>
-                    @endforeach
-                </select>
+                <input type="number" class="form-control" id="tenloaimonan" name="soban">
             </div>
             <div class="form-group">
                 <input type="submit" class="btn btn-success" id="usr">
