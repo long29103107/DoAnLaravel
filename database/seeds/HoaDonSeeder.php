@@ -16,6 +16,7 @@ class HoaDonSeeder extends Seeder
             DB::table('hoadons')->insert([
                 'id' => $i,
                 'tong_tien' => $i*10000,
+                'id_ban' => $i,
             ]);
         }
     }

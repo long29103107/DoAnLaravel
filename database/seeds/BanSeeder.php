@@ -15,7 +15,6 @@ class BanSeeder extends Seeder
         for($i = 1;$i<6;$i++){
             DB::table('bans')->insert([
                 'so' => $i+10,
-                'id_loai_ban' => $i,
             ]);
         }
     }

@@ -13,9 +13,6 @@ class CreateForeignKeys extends Migration
      */
     public function up()
     {
-        Schema::table('bans', function (Blueprint $table) {
-            $table->foreign('id_loai_ban')->references('id')->on('loaibans');
-        });
         Schema::table('hoadonnhaps', function (Blueprint $table) {
             $table->foreign('id_nha_cung_cap')->references('id')->on('nhacungcaps');
         });
@@ -29,6 +26,9 @@ class CreateForeignKeys extends Migration
         Schema::table('chitiethoadons', function (Blueprint $table) {
             $table->foreign('id_hoa_don')->references('id')->on('hoadons');
             $table->foreign('id_mon_an')->references('id')->on('monans');
+        });
+        Schema::table('hoadons', function (Blueprint $table) {
+            $table->foreign('id_ban')->references('id')->on('bans');
         });
     }
 
