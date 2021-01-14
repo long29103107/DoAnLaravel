@@ -39,9 +39,6 @@ class CreateForeignKeys extends Migration
      */
     public function down()
     {
-        Schema::table('bans', function (Blueprint $table) {
-            $table->dropforeign(['id_loai_ban']);
-        });
         Schema::table('hoadonnhaps', function (Blueprint $table) {
             $table->dropforeign(['id_nha_cung_cap']);
         });

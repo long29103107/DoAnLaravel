@@ -17,6 +17,7 @@ class HoaDonSeeder extends Seeder
                 'id' => $i,
                 'tong_tien' => $i*10000,
                 'id_ban' => $i,
+                'trang_thai'=>true
             ]);
         }
     }

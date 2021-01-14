@@ -29,11 +29,7 @@ class TableBanController extends Controller
      */
     public function create()
     {
-        //
-        $loaiban = new LoaiBan;
-        $dsloaiban = $loaiban ->DSLoaiBan();
-        $data = ['dsloaiban'=>$dsloaiban];
-        return view("ban.create",$data);
+        return view("ban.create");
     }
 
     /**
@@ -47,7 +43,6 @@ class TableBanController extends Controller
         //
         $ban = new Ban;
         $ban->so = $request->soban;
-        $ban->id_loai_ban = $request->idloaiban;
         $ban->save();
         return redirect()->route('TableBan.index');
     }
@@ -63,9 +58,7 @@ class TableBanController extends Controller
         //
         $ban = new Ban;
         $databan = $ban -> FindBan($id);
-        $loaiban = new LoaiBan;
-        $dataloaiban = $loaiban -> FindLoaiBan($databan->id_loai_ban);
-        $data = ['databan'=>$databan,'dataloaiban'=>$dataloaiban];
+        $data = ['databan'=>$databan];
         return view('ban.delete',$data);
     }
 
@@ -77,11 +70,8 @@ class TableBanController extends Controller
      */
     public function edit($id)
     {
-        //
-        $loaiban = new LoaiBan;
-        $dsloaiban = $loaiban ->DSLoaiBan();
         $ban = new Ban;
-        $data = ['ban' =>$ban->FindBan($id),'dsloaiban'=>$dsloaiban,'loaiban'=>$loaiban->FindLoaiBan($ban->FindBan($id)->id_loai_ban)];
+        $data = ['ban' =>$ban->FindBan($id)];
         return view("ban.update",$data);
     }
 
@@ -99,7 +89,6 @@ class TableBanController extends Controller
         $ban = new Ban;
         $data = $ban ->FindBan($id);
         $data->so = $request->soban;
-        $data->id_loai_ban = $request->idloaiban;
         $data->save();
         return redirect()->route('TableBan.index');
     }

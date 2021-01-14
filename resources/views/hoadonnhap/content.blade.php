@@ -42,6 +42,7 @@
                         @endforeach
                         </tbody>
                     </table>
+                    {!! $dscthoadonnhap->links()!!}
                     </div>
                 </div>
             </div>
