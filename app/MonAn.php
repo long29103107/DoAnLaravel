@@ -33,4 +33,7 @@ class MonAn extends Model
     function FindLoaiMonAn($id){
         return LoaiMonAn::find($id);
     }
+    function Search($search){
+        return MonAn::where('ten_mon_an', 'like','%'.$search.'%');
+    }
 }

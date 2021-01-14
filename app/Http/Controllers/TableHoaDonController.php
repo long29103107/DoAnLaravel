@@ -16,9 +16,7 @@ class TableHoaDonController extends Controller
      */
     public function index()
     {
-        //
-        $hoadon = new HoaDon;
-        $dshoadon = $hoadon -> DSHoaDon();
+        $dshoadon =HoaDon::paginate(10);
         $data = ['dshoadon'=>$dshoadon];
         return view("hoadon.index",$data);
     }

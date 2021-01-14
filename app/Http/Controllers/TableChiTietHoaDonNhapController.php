@@ -18,7 +18,7 @@ class TableChiTietHoaDonNhapController extends Controller
     {
         //
         $cthoadonnhap = new ChiTietHoaDonNhap;
-        $dscthoadonnhap = $cthoadonnhap -> DSChiTietHoaDonNhap();
+        $dscthoadonnhap = $cthoadonnhap -> DSChiTietHoaDonNhap()->paginate(10);
         $data = ['dscthoadonnhap'=>$dscthoadonnhap];
         return view("chitiethoadonnhap.index",$data);
     }

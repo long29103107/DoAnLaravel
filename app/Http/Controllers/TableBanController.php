@@ -17,9 +17,7 @@ class TableBanController extends Controller
      */
     public function index()
     {
-        //
-        $ban = new Ban;
-        $dsban = $ban -> DSBan();
+        $dsban =Ban:: paginate(10);
         $data = ['dsban'=>$dsban];
         return view("ban.index",$data);
     }

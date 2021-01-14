@@ -5,7 +5,7 @@
 
                 <div class="card-header">
                     <a href="{{route('TableHoaDon.create')}}"><button style="float:left;"  class="btn btn-primary">Create</button></a>
-                    <form class="form">
+                    <!-- <form class="form">
                         <div class="input-group no-border">
                             <input type="text" value="" class="form-control" placeholder="Search...">
                             <div class="input-group-append">
@@ -14,7 +14,7 @@
                             </div>
                             </div>
                         </div>
-                    </form>
+                    </form> -->
                 </div>
                 <div class="card-body">
                     <div class="">
@@ -42,6 +42,7 @@
                         @endforeach
                         </tbody>
                     </table>
+                    {!! $dshoadon->links()!!}
                     </div>
                 </div>
             </div>

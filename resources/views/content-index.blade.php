@@ -78,9 +78,9 @@
                             <div class="main_portfolio_content">
                                 @foreach($monan as $a)
                                 <div class="col-md-3 col-sm-4 col-xs-6 single_portfolio_text">
-                                    <img src="assets-1/images/p1.png" alt="" />
+                                    <img src="assets-1/images/{{$a['hinh_anh']}}" alt="" />
                                     <div class="portfolio_images_overlay text-center">
-                                        <h6>{{$a['tenmonan']}}</h6>
+                                        <h6>{{$a['ten_mon_an']}}</h6>
                                         <p class="product_price">{{$a['gia']}}&#8363;</p>
                                     </div>
                                 </div>

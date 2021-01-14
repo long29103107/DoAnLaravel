@@ -16,13 +16,19 @@ class TableNhaCungCapController extends Controller
      */
     public function index()
     {
-        //
-        $nhacungcap = new NhaCungCap;
-        $dsnhacungcap = $nhacungcap -> DSNhaCungCap();
+        $dsnhacungcap = NhaCungCap::paginate(10);
         $data = ['dsnhacungcap'=>$dsnhacungcap];
         return view("nhacungcap.index",$data);
     }
 
+    public function search(Request $request)
+    {
+        //
+        $search = $request->search;
+        $dsnhacungcap = NhaCungCap::where('ten', 'like','%'.$search.'%')->paginate(10);
+        $data = ['dsnhacungcap'=>$dsnhacungcap];
+        return view("nhacungcap.index",$data);
+    }
     /**
      * Show the form for creating a new resource.
      *

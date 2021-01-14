@@ -4,16 +4,6 @@
             <div class="card card-plain">
                 <div class="card-header">
                     <button style="float:left;"  class="btn btn-primary"><a href="{{route('TableBan.create')}}">Create</a></button>
-                    <form class="form">
-                        <div class="input-group no-border">
-                            <input type="text" value="" class="form-control" placeholder="Search...">
-                            <div class="input-group-append">
-                            <div class="input-group-text">
-                                <i class="nc-icon nc-zoom-split"></i>
-                            </div>
-                            </div>
-                        </div>
-                    </form>
                 </div>
                 <div class="card-body">
                     <div class="">

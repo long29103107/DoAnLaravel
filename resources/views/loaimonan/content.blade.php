@@ -5,9 +5,9 @@
 
                 <div class="card-header">
                     <button style="float:left;"  class="btn btn-primary"><a href="{{route('TableLoaiMonAn.create')}}">Create</a></button>
-                    <form class="form">
+                    <form class="form" action="{{route('TableLoaiMonAn.search')}}">
                         <div class="input-group no-border">
-                            <input type="text" value="" class="form-control" placeholder="Search...">
+                        <input type="text" value="" name="search" class="form-control" placeholder="Search...">
                             <div class="input-group-append">
                             <div class="input-group-text">
                                 <i class="nc-icon nc-zoom-split"></i>

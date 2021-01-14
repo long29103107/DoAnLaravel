@@ -5,9 +5,11 @@
 
                 <div class="card-header">
                     <button style="float:left;"  class="btn btn-primary"><a href="{{route('TableNhaCungCap.create')}}">Create</a></button>
-                    <form class="form">
+                    
+                    <!-- search -->
+                    <form class="form" action="{{route('TableNhaCungCapsearch')}}" method="get" >
                         <div class="input-group no-border">
-                            <input type="text" value="" class="form-control" placeholder="Search...">
+                            <input type="text" name="search" class="form-control" placeholder="Search...">
                             <div class="input-group-append">
                             <div class="input-group-text">
                                 <i class="nc-icon nc-zoom-split"></i>
@@ -52,6 +54,7 @@
                         @endforeach
                         </tbody>
                     </table>
+                    {!! $dsnhacungcap->links()!!}
                     </div>
                 </div>
             </div>

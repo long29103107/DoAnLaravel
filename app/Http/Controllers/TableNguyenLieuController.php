@@ -15,9 +15,15 @@ class TableNguyenLieuController extends Controller
      */
     public function index()
     {
-        //
-        $nguyenlieu = new NguyenLieu;
-        $dsnguyenlieu = $nguyenlieu -> DSNguyenLieu();
+        $dsnguyenlieu =NguyenLieu::paginate(10);;
+        $data = ['dsnguyenlieu'=>$dsnguyenlieu];
+        return view("nguyenlieu.index",$data);
+    }
+
+    public function search(Request $request)
+    { 
+        $search = $request->search;
+        $dsnguyenlieu = NguyenLieu::where('ten', 'like','%'.$search.'%')->paginate(10);
         $data = ['dsnguyenlieu'=>$dsnguyenlieu];
         return view("nguyenlieu.index",$data);
     }

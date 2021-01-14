@@ -17,13 +17,19 @@ class TableMonAnController extends Controller
      */
     public function index()
     {
-        //
-        $monan = new MonAn;
-        $dsmonan = $monan -> DSMonAn();
+        $dsmonan =MonAn::paginate(10);
         $data = ['dsmonan'=>$dsmonan];
         return view("monan.index",$data);
     }
 
+    public function search(Request $request)
+    { 
+        $search = $request->search;
+        $s=new MonAn();
+        $dsmonan = $s->Search($search)->paginate(10);
+        $data = ['dsmonan'=>$dsmonan];
+        return view("monan.index",$data);
+    }
     /**
      * Show the form for creating a new resource.
      *

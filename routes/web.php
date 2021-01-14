@@ -17,7 +17,7 @@ use App\User;
 Route::get('/', 'IndexController@index')->name('Index.index');
 Route::get('useradmin', 'UserAdminController@index')->name('UserAdmin.index')->middleware('checklogin');
 Route::get('dashboard', 'DashboardController@index')->name('Dashboard.index')->middleware('checklogin');
-Route::get('tableuser/search','TableUserController@search')->name('search')->middleware('checklogin');
+Route::get('tableuser/search','TableUserController@search')->name('UserAdmin.search')->middleware('checklogin');
 
 //Đăng nhập
 Route::get('login', 'TableUserController@getLogin')->name('Login.get');
@@ -71,21 +71,13 @@ Route::put('tablehoadonnhap/{id}', 'TableHoaDonNhapController@update')->name('Ta
 Route::get('tablehoadonnhap/{id}', 'TableHoaDonNhapController@show')->name('TableHoaDonNhap.show')->middleware('checklogin');
 Route::delete('tablehoadonnhap/{id}', 'TableHoaDonNhapController@destroy')->name('TableHoaDonNhap.destroy')->middleware('checklogin');
 
-//Table loại bàn
-Route::get('tableloaiban', 'TableLoaiBanController@index')->name('TableLoaiBan.index')->middleware('checklogin');
-Route::get('tableloaiban/create', 'TableLoaiBanController@create')->name('TableLoaiBan.create')->middleware('checklogin');
-Route::post('tableloaiban', 'TableLoaiBanController@store')->name('TableLoaiBan.store')->middleware('checklogin');
-Route::get('tableloaiban/{id}/edit', 'TableLoaiBanController@edit')->name('TableLoaiBan.edit')->middleware('checklogin');
-Route::put('tableloaiban/{id}', 'TableLoaiBanController@update')->name('TableLoaiBan.update')->middleware('checklogin');
-Route::get('tableloaiban/{id}', 'TableLoaiBanController@show')->name('TableLoaiBan.show')->middleware('checklogin');
-Route::delete('tableloaiban/{id}', 'TableLoaiBanController@destroy')->name('TableLoaiBan.destroy')->middleware('checklogin');
-
 //Table loại món ăn
 Route::get('tableloaimonan', 'TableLoaiMonAnController@index')->name('TableLoaiMonAn.index')->middleware('checklogin');
 Route::get('tableloaimonan/create', 'TableLoaiMonAnController@create')->name('TableLoaiMonAn.create')->middleware('checklogin');
 Route::post('tableloaimonan', 'TableLoaiMonAnController@store')->name('TableLoaiMonAn.store')->middleware('checklogin');
 Route::get('tableloaimonan/{id}/edit', 'TableLoaiMonAnController@edit')->name('TableLoaiMonAn.edit')->middleware('checklogin');
 Route::put('tableloaimonan/{id}', 'TableLoaiMonAnController@update')->name('TableLoaiMonAn.update')->middleware('checklogin');
+Route::get('tableloaimonan/search', 'TableLoaiMonAnController@search')->name('TableLoaiMonAn.search')->middleware('checklogin');
 Route::get('tableloaimonan/{id}', 'TableLoaiMonAnController@show')->name('TableLoaiMonAn.show')->middleware('checklogin');
 Route::delete('tableloaimonan/{id}', 'TableLoaiMonAnController@destroy')->name('TableLoaiMonAn.destroy')->middleware('checklogin');
 
@@ -95,6 +87,7 @@ Route::get('tablemonan/create', 'TableMonAnController@create')->name('TableMonAn
 Route::post('tablemonan', 'TableMonAnController@store')->name('TableMonAn.store')->middleware('checklogin');
 Route::get('tablemonan/{id}/edit', 'TableMonAnController@edit')->name('TableMonAn.edit')->middleware('checklogin');
 Route::put('tablemonan/{id}', 'TableMonAnController@update')->name('TableMonAn.update')->middleware('checklogin');
+Route::get('tablemonan/search', 'TableMonAnController@search')->name('TableMonAn.search')->middleware('checklogin');
 Route::get('tablemonan/{id}', 'TableMonAnController@show')->name('TableMonAn.show')->middleware('checklogin');
 Route::delete('tablemonan/{id}', 'TableMonAnController@destroy')->name('TableMonAn.destroy')->middleware('checklogin');
 
@@ -104,6 +97,7 @@ Route::get('tablenguyenlieu/create', 'TableNguyenLieuController@create')->name('
 Route::post('tablenguyenlieu', 'TableNguyenLieuController@store')->name('TableNguyenLieu.store')->middleware('checklogin');
 Route::get('tablenguyenlieu/{id}/edit', 'TableNguyenLieuController@edit')->name('TableNguyenLieu.edit')->middleware('checklogin');
 Route::put('tablenguyenlieu/{id}', 'TableNguyenLieuController@update')->name('TableNguyenLieu.update')->middleware('checklogin');
+Route::get('tablenguyenlieu/search', 'TableNguyenLieuController@search')->name('TableNguyenLieu.search')->middleware('checklogin');
 Route::get('tablenguyenlieu/{id}', 'TableNguyenLieuController@show')->name('TableNguyenLieu.show')->middleware('checklogin');
 Route::delete('tablenguyenlieu/{id}', 'TableNguyenLieuController@destroy')->name('TableNguyenLieu.destroy')->middleware('checklogin');
 
@@ -114,6 +108,7 @@ Route::get('tablenhacungcap/create', 'TableNhaCungCapController@create')->name('
 Route::post('tablenhacungcap', 'TableNhaCungCapController@store')->name('TableNhaCungCap.store')->middleware('checklogin');
 Route::get('tablenhacungcap/{id}/edit', 'TableNhaCungCapController@edit')->name('TableNhaCungCap.edit')->middleware('checklogin');
 Route::put('tablenhacungcap/{id}', 'TableNhaCungCapController@update')->name('TableNhaCungCap.update')->middleware('checklogin');
+Route::get('tablenhacungcap/search', 'TableNhaCungCapController@search')->name('TableNhaCungCapsearch')->middleware('checklogin');
 Route::get('tablenhacungcap/{id}', 'TableNhaCungCapController@show')->name('TableNhaCungCap.show')->middleware('checklogin');
 Route::delete('tablenhacungcap/{id}', 'TableNhaCungCapController@destroy')->name('TableNhaCungCap.destroy')->middleware('checklogin');
 

@@ -16,7 +16,6 @@ class TableHoaDonNhapController extends Controller
      */
     public function index()
     {
-        //
         $hoadonnhap = new HoaDonNhap;
         $dshoadonnhap = $hoadonnhap -> DSHoaDonNhap();
         $data = ['dshoadonnhap'=>$dshoadonnhap];
@@ -35,12 +34,6 @@ class TableHoaDonNhapController extends Controller
         return view("hoadonnhap.create",$data);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $HoaDonNhap = new HoaDonNhap;

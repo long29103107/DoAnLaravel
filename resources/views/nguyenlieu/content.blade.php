@@ -5,13 +5,13 @@
 
                 <div class="card-header">
                     <button style="float:left;"  class="btn btn-primary"><a href="{{route('TableNguyenLieu.create')}}">Create</a></button>
-                    <form class="form" action="#"  method="post" enctype="multipart/form-data">
+                    <form class="form" action="{{route('TableNguyenLieu.search')}}">
                         <div class="input-group no-border">
-                            <input type="text" value="" class="form-control" name="timkiem" placeholder="Search...">
+                            <input type="text" name="search" class="form-control" placeholder="Search...">
                             <div class="input-group-append">
-                            <button class="btn btn-success">
+                            <div class="input-group-text">
                                 <i class="nc-icon nc-zoom-split"></i>
-                            </button>
+                            </div>
                             </div>
                         </div>
                     </form>

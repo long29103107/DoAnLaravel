@@ -15,9 +15,8 @@ class TableChiTietHoaDonController extends Controller
      */
     public function index()
     {
-        //
         $cthoadon = new ChiTietHoaDon;
-        $dscthoadon = $cthoadon -> DSChiTietHoaDon();
+        $dscthoadon = $cthoadon -> DSChiTietHoaDon()->paginate(10);;
         $data = ['dscthoadon'=>$dscthoadon];
         return view("chitiethoadon.index",$data);
     }
@@ -60,7 +59,7 @@ class TableChiTietHoaDonController extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**

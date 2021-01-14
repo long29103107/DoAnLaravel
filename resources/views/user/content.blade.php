@@ -4,7 +4,7 @@
             <div class="card card-plain">
                 <div class="card-header">
                     <button style="float:left;" class="btn btn-primary"><a href="{{route('TableUser.create')}}">Create</a></button>
-                    <form class="form" action="{{route('search')}}" method="get">
+                    <form class="form" action="{{route('UserAdmin.search')}}" method="get">
                         <div class="input-group no-border">
                             <input type="search" class="form-control" name="search" placeholder="Searching ... ">
                             <div class="input-group-append">

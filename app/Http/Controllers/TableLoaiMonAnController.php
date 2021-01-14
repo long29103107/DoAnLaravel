@@ -17,13 +17,18 @@ class TableLoaiMonAnController extends Controller
      */
     public function index()
     {
-        //
-        $loaimonan = new LoaiMonAn;
-        $dsloaimonan = $loaimonan -> DSLoaiMonAn();
+        $dsloaimonan = LoaiMonAn::paginate(10);
         $data = ['dsloaimonan'=>$dsloaimonan];
         return view("loaimonan.index",$data);
     }
 
+    public function search(Request $request)
+    { 
+        $search = $request->search;
+        $dsloaimonan = LoaiMonAn::where('ten_loai', 'like','%'.$search.'%')->paginate(10);
+        $data = ['dsloaimonan'=>$dsloaimonan];
+        return view("loaimonan.index",$data);
+    }
     /**
      * Show the form for creating a new resource.
      *

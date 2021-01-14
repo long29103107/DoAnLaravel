@@ -5,9 +5,9 @@
 
                 <div class="card-header">
                 <button style="float:left;"  class="btn btn-primary"><a href="{{route('TableMonAn.create')}}">Create</a></button>
-                    <form class="form">
+                    <form class="form" action="{{route('TableMonAn.search')}}">
                         <div class="input-group no-border">
-                            <input type="text" value="" class="form-control" placeholder="Search...">
+                            <input name="search" type="text" value="" class="form-control" placeholder="Search...">
                             <div class="input-group-append">
                             <div class="input-group-text">
                                 <i class="nc-icon nc-zoom-split"></i>
@@ -66,6 +66,7 @@
                         </tbody>
                         
                     </table>
+                    {!! $dsmonan->links()!!}
                     </div>
                 </div>
             </div>

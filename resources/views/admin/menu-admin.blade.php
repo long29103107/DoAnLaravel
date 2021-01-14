@@ -31,7 +31,6 @@
               <a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="nc-icon nc-tile-56"></i>Table </a>
               <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
                 <li> <a href="{{route('TableUser.index')}}"><i class="fa fa-angle-right"></i>User</a></li>
-                <li> <a href="{{route('TableLoaiBan.index')}}"><i class="fa fa-angle-right"></i>Loại bàn</a></li>
                 <li> <a href="{{route('TableBan.index')}}"><i class="fa fa-angle-right"></i>Bàn</a></li>
                 <li> <a href="{{route('TableLoaiMonAn.index')}}"><i class="fa fa-angle-right"></i>Loại món ăn</a></li>
                 <li> <a href="{{route('TableMonAn.index')}}"><i class="fa fa-angle-right"></i>Món ăn</a></li>

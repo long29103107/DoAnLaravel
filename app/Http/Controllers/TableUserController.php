@@ -60,7 +60,7 @@ class TableUserController extends Controller
         //
         $user = new User;
         $dsuser = $user -> DSUser();
-        $dsuser = User::paginate(3);
+        $dsuser = User::paginate(10);
         $data = ['dsuser'=>$dsuser];
         return view("user.index",$data);
     }
