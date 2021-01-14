@@ -16,6 +16,7 @@ class Hoadon extends Migration
         Schema::create('hoadons', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('tong_tien');
+            $table->unsignedBigInteger('id_ban');
             $table->timestamps();
             $table->softDeletes();
             $table->engine='InnoDB';
