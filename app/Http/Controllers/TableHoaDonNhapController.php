@@ -16,8 +16,7 @@ class TableHoaDonNhapController extends Controller
      */
     public function index()
     {
-        $hoadonnhap = new HoaDonNhap;
-        $dshoadonnhap = $hoadonnhap -> DSHoaDonNhap();
+        $dshoadonnhap = HoaDonNhap::paginate(10);
         $data = ['dshoadonnhap'=>$dshoadonnhap];
         return view("hoadonnhap.index",$data);
     }
